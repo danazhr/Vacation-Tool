@@ -41,10 +41,7 @@ public class LogInSteps extends ScenarioSteps {
 		
 	}
 	
-	@Step
-	public void go_to_NewVacationReq(){
-		newVacationRequestPage.go_to_new_request();
-	}
+	
 	
 	
 
