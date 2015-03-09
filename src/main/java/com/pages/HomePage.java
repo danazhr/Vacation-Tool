@@ -4,7 +4,7 @@ import net.thucydides.core.annotations.findby.FindBy;
 import net.thucydides.core.pages.PageObject;
 import net.thucydides.core.pages.WebElementFacade;
 
-public class MainPage extends PageObject {
+public class HomePage extends PageObject {
 	
 	@FindBy(css = "a[href*='vacation']")
 	private WebElementFacade vacation_button;

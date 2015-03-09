@@ -1,7 +1,7 @@
 package com.steps;
 
 import com.pages.LogInPage;
-import com.pages.MainPage;
+import com.pages.HomePage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 
@@ -9,7 +9,7 @@ public class LogInSteps extends ScenarioSteps {
 	
 	
 	LogInPage loginPage;
-	MainPage mainPage;
+	HomePage mainPage;
 	
 	@Step
 	public void is_the_login_page(){
