@@ -17,7 +17,7 @@ public class LogInPage extends PageObject {
 
 	@FindBy(css = "[type='submit']")
 	private WebElementFacade login;
-
+			
 	public void enter_username(String user) {
 		username.type(user);
 	}
