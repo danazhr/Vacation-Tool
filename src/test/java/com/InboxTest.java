@@ -6,6 +6,7 @@ import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.pages.Pages;
 import net.thucydides.junit.runners.ThucydidesRunner;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
@@ -28,14 +29,14 @@ public class InboxTest {
 	 public LogInSteps logInSteps;
 	 
 	 @Test
-	 public void open_inbox_page(){
+	 public void verify_that_inbox_requests_number_displayed_is_the_same_as_in_the_table(){
 		 logInSteps.is_the_login_page();
 		 logInSteps.entersUsername("dana.zaharia");
 		 logInSteps.entersPassword("danna");
 		 logInSteps.clickLogIn();
 		 logInSteps.clickVacation();
-		 inboxSteps.click_inbox();
-		 
+		 inboxSteps.go_to_inbox();
+		 Assert.assertEquals("expected requests number is different!!!", inboxSteps.get_inbox_requests_number(), inboxSteps.get_table_requests_number());
 	 }
 	 
 

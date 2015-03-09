@@ -13,9 +13,18 @@ public class InboxSteps extends ScenarioSteps{
 	InboxPage inboxPage;
 	
 	@Step
-	public void click_inbox(){
+	public void go_to_inbox(){
 		inboxPage.click_inbox();
 	}
 	
+	@Step
+	public int get_inbox_requests_number() {
+		return inboxPage.get_inbox_requests_number();
+	}
+
+	@Step
+	public int get_table_requests_number() {
+		return inboxPage.get_table_requests_number();
+	}
 
 }
