@@ -1,5 +1,7 @@
 package com;
 
+import java.text.ParseException;
+
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.ManagedPages;
 import net.thucydides.core.annotations.Steps;
@@ -30,7 +32,7 @@ public class NewVacationReqTest {
 	 public LogInSteps logIn;
 	
 	@Test
-	 public void go_to_new_request(){
+	 public void go_to_new_request() throws ParseException{
 		logIn.is_the_login_page();
 		logIn.entersUsername("dana.zaharia");
 		logIn.entersPassword("danna");
@@ -38,7 +40,10 @@ public class NewVacationReqTest {
 		logIn.clickVacation();
 		newVacationReqSteps.click_newVacationReq();
 		
-		Assert.assertEquals(2, newVacationReqSteps.get_businessDaysOutput());
+		//Assert.assertEquals(1, newVacationReqSteps.get_businessDaysOutput());
+		
+		newVacationReqSteps.setStartDate(4, 6, 2016);
+		newVacationReqSteps.setEndDate(4, 18, 2016);
 	}
 	
 
