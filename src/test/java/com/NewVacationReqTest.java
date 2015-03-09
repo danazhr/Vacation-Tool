@@ -6,6 +6,7 @@ import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.pages.Pages;
 import net.thucydides.junit.runners.ThucydidesRunner;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
@@ -36,7 +37,8 @@ public class NewVacationReqTest {
 		logIn.clickLogIn();
 		logIn.clickVacation();
 		newVacationReqSteps.click_newVacationReq();
-		 
+		
+		Assert.assertEquals(2, newVacationReqSteps.get_businessDaysOutput());
 	}
 	
 
