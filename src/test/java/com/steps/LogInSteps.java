@@ -12,8 +12,7 @@ public class LogInSteps extends ScenarioSteps {
 	
 	LogInPage loginPage;
 	HomePage mainPage;
-	NewVacationReqPage newVacationRequestPage;
-	
+		
 	@Step
 	public void is_the_login_page(){
 		loginPage.open();
