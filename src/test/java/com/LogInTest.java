@@ -26,8 +26,8 @@ public class LogInTest {
 	 @Test
 	 public void login_with_user_and_password(){
 		 logIn.is_the_login_page();
-		 logIn.entersUsername("virginiaanca.oprean");
-		 logIn.entersPassword("1234");
+		 logIn.entersUsername("dana.zaharia");
+		 logIn.entersPassword("danna");
 		 logIn.clickLogIn();
 	 }
 	 
