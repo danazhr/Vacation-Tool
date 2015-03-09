@@ -16,6 +16,16 @@ public class InboxPage extends PageObject {
 
 	@FindBy(css = "td[class*='start.date']")
 	public List<WebElement> startDates;
+	
+	@FindBy(css ="td[class*='rowChecker'] input")
+	public List<WebElement> check_boxes;
+	
+	
+	@FindBy(css = "td[class*='employee-name']")
+	public List<WebElement> names;
+	
+	@FindBy(css = "input[value='Approve']")
+	public WebElementFacade approve_button;;
 
 	public void click_inbox() {
 		inbox.waitUntilVisible();
@@ -31,4 +41,21 @@ public class InboxPage extends PageObject {
 		return startDates.size();
 	}
 
+	public void select_request(String employee, String startDate){
+		for(WebElement name : names){
+			if (name.getText().contains(employee)){
+				for(int i = 0; i < startDates.size(); i++){
+					if(startDates.get(i).getText().contains(startDate)){
+						check_boxes.get(i).click();
+					}
+				}
+				break;
+			}
+		}
+
+	}
+	
+	public void click_approve_button(){
+		approve_button.click();
+	}
 }

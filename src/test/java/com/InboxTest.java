@@ -39,5 +39,18 @@ public class InboxTest {
 		 Assert.assertEquals("expected requests number is different!!!", inboxSteps.get_inbox_requests_number(), inboxSteps.get_table_requests_number());
 	 }
 	 
+	 @Test
+	 public void verify_that_approve_button_works_for_selected_request(){
+		 logInSteps.is_the_login_page();
+		 logInSteps.entersUsername("dana.zaharia");
+		 logInSteps.entersPassword("danna");
+		 logInSteps.clickLogIn();
+		 logInSteps.clickVacation();
+		 inboxSteps.go_to_inbox();
+		 Assert.assertEquals("expected requests number is different!!!", inboxSteps.get_inbox_requests_number(), inboxSteps.get_table_requests_number());
+		 inboxSteps.select_request("Anca Oprean", "28/07/2015");
+		 inboxSteps.click_approve_button();
+	 }
+	 
 
 }

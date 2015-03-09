@@ -27,4 +27,13 @@ public class InboxSteps extends ScenarioSteps{
 		return inboxPage.get_table_requests_number();
 	}
 
+	@Step
+	public void select_request(String employee, String startDate){
+		inboxPage.select_request(employee, startDate);
+	}
+	
+	@Step
+	public void click_approve_button(){
+		inboxPage.click_approve_button();
+	}
 }
