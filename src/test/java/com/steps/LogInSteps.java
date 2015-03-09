@@ -1,7 +1,7 @@
 package com.steps;
 
 import com.pages.LogInPage;
-import com.pages.MainPage;
+import com.pages.HomePage;
 import com.pages.NewVacationReqPage;
 
 import net.thucydides.core.annotations.Step;
@@ -11,7 +11,7 @@ public class LogInSteps extends ScenarioSteps {
 	
 	
 	LogInPage loginPage;
-	MainPage mainPage;
+	HomePage mainPage;
 	NewVacationReqPage newVacationRequestPage;
 	
 	@Step
