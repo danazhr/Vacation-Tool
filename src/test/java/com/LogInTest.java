@@ -30,6 +30,7 @@ public class LogInTest {
 		 logIn.entersPassword("danna");
 		 logIn.clickLogIn();
 		 logIn.clickVacation();
+		 logIn.go_to_NewVacationReq();
 	 }
 	 
 

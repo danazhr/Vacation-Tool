@@ -2,6 +2,8 @@ package com.steps;
 
 import com.pages.LogInPage;
 import com.pages.MainPage;
+import com.pages.NewVacationReqPage;
+
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 
@@ -10,6 +12,7 @@ public class LogInSteps extends ScenarioSteps {
 	
 	LogInPage loginPage;
 	MainPage mainPage;
+	NewVacationReqPage newVacationRequestPage;
 	
 	@Step
 	public void is_the_login_page(){
@@ -36,6 +39,11 @@ public class LogInSteps extends ScenarioSteps {
 	public void clickVacation(){
 		mainPage.go_to_vacation();
 		
+	}
+	
+	@Step
+	public void go_to_NewVacationReq(){
+		newVacationRequestPage.go_to_new_request();
 	}
 	
 	
