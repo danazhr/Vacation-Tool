@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 
 import net.thucydides.core.annotations.findby.By;
@@ -36,18 +37,28 @@ public class NewVacationReqPage extends PageObject {
 
 	@FindBy(css = "input[id='_evovacation_WAR_EvoVacationportlet_type_CS']")
 	private WebElementFacade concediuSpecial;
-	
+
 	@FindBy(css = "select[id='_evovacation_WAR_EvoVacationportlet_specialReason']")
 	private WebElementFacade specialReason;
-	
+
 	@FindBy(css = "div#_evovacation_WAR_EvoVacationportlet_newVacationComment")
 	private WebElementFacade addComment;
-	
+
 	@FindBy(css = "textarea[name='commentContent']")
 	private WebElementFacade textAreaComment;
 
+	@FindBy(css = "input[id='_evovacation_WAR_EvoVacationportlet_saveButton']")
+	private WebElementFacade saveVacReqButton;
+	
+	@FindBy(css = "div.portlet-msg-error:first-child")
+	private WebElementFacade getFirstErrorMessage;
+
 	public void click_StartDate() {
 		startDateButton.click();
+	}
+	
+	public void getFirstErrorMessage(){
+		Assert.assertTrue("Test Failed!", getFirstErrorMessage.getText().toLowerCase().contains(" Your request failed to complete.".toLowerCase()));
 	}
 
 	public void click_EndDate() {
@@ -61,26 +72,29 @@ public class NewVacationReqPage extends PageObject {
 	public int get_businessDaysOutput() {
 		System.out.println(businessDaysOutput.getText());
 		return Integer.parseInt(businessDaysOutput.getText());
-
 	}
-	
-	public void click_concediuSpecial(){
+
+	public void click_concediuSpecial() {
 		concediuSpecial.click();
 	}
-	
-	public void selectSpecialReason(String specV){
+
+	public void selectSpecialReason(String specV) {
 		specialReason.selectByVisibleText(specV).click();
 	}
-	
-	public void clickForAddComment(){
+
+	public void clickForAddComment() {
 		addComment.click();
 	}
-	
-	public void addTextAreaComment(String comment){
+
+	public void addTextAreaComment(String comment) {
 		textAreaComment.type(comment);
 	}
 	
-
+	public void clickSaveButton(){
+		saveVacReqButton.click();
+	}
+	
+	
 	public void settingDateByGivenParameter(int month, int day, int year)
 			throws ParseException {
 

@@ -60,6 +60,7 @@ public class NewVacationReqTest {
 		newVacationReqSteps.setEndDate(4, 18, 2015);
 		newVacationReqSteps.selectConcediuSpecialReason("Other");
 		newVacationReqSteps.addTextAreaComment("comment");
+		newVacationReqSteps.clickSaveButton();
 		}
 
 }

@@ -45,5 +45,11 @@ public class NewVacationReqSteps extends ScenarioSteps {
 		newVacationRequest.addTextAreaComment(comment);
 	}
 	
+	@Step
+	public void clickSaveButton(){
+		newVacationRequest.clickSaveButton();
+	}
+	
+		
 
 }
