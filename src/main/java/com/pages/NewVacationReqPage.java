@@ -8,6 +8,8 @@ import java.util.List;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 
+import com.sun.jna.StringArray;
+
 import net.thucydides.core.annotations.findby.By;
 import net.thucydides.core.annotations.findby.FindBy;
 import net.thucydides.core.pages.PageObject;
@@ -49,17 +51,34 @@ public class NewVacationReqPage extends PageObject {
 
 	@FindBy(css = "input[id='_evovacation_WAR_EvoVacationportlet_saveButton']")
 	private WebElementFacade saveVacReqButton;
-	
-	@FindBy(css = "div.portlet-msg-error:first-child")
-	private WebElementFacade getFirstErrorMessage;
+
+	@FindBy(css = ".vacationTypeChoice label")
+	private List<WebElement> selectVacationTypeList;
+
+	/*
+	 * @FindBy(css = "div.portlet-msg-error:first-child") private
+	 * WebElementFacade getFirstErrorMessage;
+	 */
 
 	public void click_StartDate() {
 		startDateButton.click();
 	}
 	
-	public void getFirstErrorMessage(){
-		Assert.assertTrue("Test Failed!", getFirstErrorMessage.getText().toLowerCase().contains(" Your request failed to complete.".toLowerCase()));
+	public void selectNewVacationType(String check) {
+		for (WebElement i : selectVacationTypeList){
+			if (i.getText().contentEquals(check)) {
+				i.click();
+				break;
+			}
+		}
 	}
+
+	/*
+	 * public void getFirstErrorMessage(){ Assert.assertTrue("Test Failed!",
+	 * getFirstErrorMessage
+	 * .getText().toLowerCase().contains(" Your request failed to complete."
+	 * .toLowerCase())); }
+	 */
 
 	public void click_EndDate() {
 		endDateButton.click();
@@ -67,6 +86,10 @@ public class NewVacationReqPage extends PageObject {
 
 	public void go_to_new_request() {
 		new_vacation_button.click();
+	}
+
+	public void selectNewVacationType() {
+		//selectNewVacationType.
 	}
 
 	public int get_businessDaysOutput() {
@@ -89,19 +112,20 @@ public class NewVacationReqPage extends PageObject {
 	public void addTextAreaComment(String comment) {
 		textAreaComment.type(comment);
 	}
-	
-	public void clickSaveButton(){
+
+	public void clickSaveButton() {
 		saveVacReqButton.click();
 	}
-	
-	
-	public void settingDateByGivenParameter(int month, int day, int year)
-			throws ParseException {
 
+	
+	public void settingDateByGivenParameter(String date) throws ParseException {
+		
+		String[] dateList = date.split("/");
+		
 		Calendar calNew = Calendar.getInstance();
 		SimpleDateFormat sdfNew = new SimpleDateFormat("dd/MM/yyyy");
-		calNew.setTime(sdfNew.parse("1/" + String.valueOf(month) + "/"
-				+ String.valueOf(year)));
+		calNew.setTime(sdfNew.parse("1/" + dateList[1] + "/"
+				+ dateList[2]));
 
 		Calendar cal = Calendar.getInstance();
 
@@ -127,10 +151,10 @@ public class NewVacationReqPage extends PageObject {
 		List<WebElement> days = getDriver().findElements(
 				By.cssSelector("div[style*='block'] td"));
 		for (WebElement currentDay : days) {
-			if (currentDay.getText().contentEquals(String.valueOf(day)))
+			if (currentDay.getText().contentEquals(String.valueOf(dateList[0])))
 				currentDay.click();
 		}
-
+		
 	}
 
 }

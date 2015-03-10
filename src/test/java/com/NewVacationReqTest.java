@@ -56,11 +56,13 @@ public class NewVacationReqTest {
 		
 		//Assert.assertEquals(1, newVacationReqSteps.get_businessDaysOutput());
 		
-		newVacationReqSteps.setStartDate(4, 6, 2015);
-		newVacationReqSteps.setEndDate(4, 18, 2015);
+		//newVacationReqSteps.setStartDate(4, 6, 2015);
+		newVacationReqSteps.setStartDate("6/4/2015");
+		//newVacationReqSteps.setEndDate(4, 18, 2015);
+		newVacationReqSteps.setEndDate("15/4/2015");
 		newVacationReqSteps.selectConcediuSpecialReason("Other");
 		newVacationReqSteps.addTextAreaComment("comment");
-		newVacationReqSteps.clickSaveButton();
+		//newVacationReqSteps.clickSaveButton();
 		}
 
 }
