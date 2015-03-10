@@ -16,8 +16,11 @@ public class LogInSteps extends ScenarioSteps {
 	@Step
 	public void is_the_login_page(){
 		loginPage.open();
+		loginPage.getDriver().manage().window().maximize();
 		loginPage.go_to_login();
 	}
+	
+	
 	
 	@Step
 	public void entersUsername(String user){
