@@ -28,7 +28,7 @@ public class InboxTest {
 	 @Steps
 	 public LogInSteps logInSteps;
 	 
-	 @Test
+	 //@Test
 	 public void verify_that_inbox_requests_number_displayed_is_the_same_as_in_the_table(){
 		 logInSteps.is_the_login_page();
 		 logInSteps.entersUsername("dana.zaharia");
@@ -48,8 +48,9 @@ public class InboxTest {
 		 logInSteps.clickVacation();
 		 inboxSteps.go_to_inbox();
 		 Assert.assertEquals("expected requests number is different!!!", inboxSteps.get_inbox_requests_number(), inboxSteps.get_table_requests_number());
-		 inboxSteps.select_request("Anca Oprean", "28/07/2015");
+		 inboxSteps.select_request("Anca Oprean", "14/05/2015");
 		 inboxSteps.click_approve_button();
+		 inboxSteps.check_if_selected_request_was_approved("Anca Oprean", "14/05/2015");
 	 }
 	 
 
