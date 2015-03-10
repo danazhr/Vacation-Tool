@@ -36,4 +36,9 @@ public class InboxSteps extends ScenarioSteps{
 	public void click_approve_button(){
 		inboxPage.click_approve_button();
 	}
+	
+	@Step
+	public void check_if_selected_request_was_approved(String employee, String startDate){
+		inboxPage.check_if_selected_request_was_approved(employee, startDate);
+	}
 }

@@ -2,6 +2,10 @@ package com.pages;
 
 import java.util.List;
 
+
+
+
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 
 import net.thucydides.core.annotations.findby.FindBy;
@@ -57,5 +61,22 @@ public class InboxPage extends PageObject {
 	
 	public void click_approve_button(){
 		approve_button.click();
+	}
+
+
+	public void check_if_selected_request_was_approved(String employee,
+			String startDate) {
+		boolean found = false;
+		for (WebElement name : names) {
+			if (name.getText().contains(employee)) {
+				for (int i = 0; i < startDates.size(); i++) {
+					if (startDates.get(i).getText().contains(startDate)) {
+						found = true;
+					}
+				}
+				break;
+			}
+		}
+		Assert.assertFalse("Request was found!", found);
 	}
 }
