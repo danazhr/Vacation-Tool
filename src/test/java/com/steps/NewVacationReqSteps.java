@@ -32,5 +32,18 @@ public class NewVacationReqSteps extends ScenarioSteps {
 		newVacationRequest.click_EndDate();
 		newVacationRequest.settingDateByGivenParameter(month, day, year);
 	}
+	
+	@Step
+	public void selectConcediuSpecialReason(String specV){
+		newVacationRequest.click_concediuSpecial();
+		newVacationRequest.selectSpecialReason(specV);
+		newVacationRequest.clickForAddComment();
+	}
+	
+	@Step
+	public void addTextAreaComment(String comment){
+		newVacationRequest.addTextAreaComment(comment);
+	}
+	
 
 }

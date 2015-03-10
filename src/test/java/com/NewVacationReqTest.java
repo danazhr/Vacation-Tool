@@ -31,7 +31,7 @@ public class NewVacationReqTest {
 	@Steps
 	 public LogInSteps logIn;
 	
-	@Test
+	/*@Test
 	 public void go_to_new_request() throws ParseException{
 		logIn.is_the_login_page();
 		logIn.entersUsername("dana.zaharia");
@@ -44,7 +44,22 @@ public class NewVacationReqTest {
 		
 		newVacationReqSteps.setStartDate(4, 6, 2016);
 		newVacationReqSteps.setEndDate(4, 18, 2016);
-	}
-	
+	}*/
+	@Test
+	public void adding_comment_to_a_special_req_that_was_selected() throws ParseException{
+		logIn.is_the_login_page();
+		logIn.entersUsername("dana.zaharia");
+		logIn.entersPassword("danna");
+		logIn.clickLogIn();
+		logIn.clickVacation();
+		newVacationReqSteps.click_newVacationReq();
+		
+		//Assert.assertEquals(1, newVacationReqSteps.get_businessDaysOutput());
+		
+		newVacationReqSteps.setStartDate(4, 6, 2015);
+		newVacationReqSteps.setEndDate(4, 18, 2015);
+		newVacationReqSteps.selectConcediuSpecialReason("Other");
+		newVacationReqSteps.addTextAreaComment("comment");
+		}
 
 }

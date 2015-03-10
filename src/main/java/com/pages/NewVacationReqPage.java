@@ -34,6 +34,18 @@ public class NewVacationReqPage extends PageObject {
 	@FindBy(name = "endDate")
 	private WebElementFacade endDateButton;
 
+	@FindBy(css = "input[id='_evovacation_WAR_EvoVacationportlet_type_CS']")
+	private WebElementFacade concediuSpecial;
+	
+	@FindBy(css = "select[id='_evovacation_WAR_EvoVacationportlet_specialReason']")
+	private WebElementFacade specialReason;
+	
+	@FindBy(css = "div#_evovacation_WAR_EvoVacationportlet_newVacationComment")
+	private WebElementFacade addComment;
+	
+	@FindBy(css = "textarea[name='commentContent']")
+	private WebElementFacade textAreaComment;
+
 	public void click_StartDate() {
 		startDateButton.click();
 	}
@@ -51,6 +63,23 @@ public class NewVacationReqPage extends PageObject {
 		return Integer.parseInt(businessDaysOutput.getText());
 
 	}
+	
+	public void click_concediuSpecial(){
+		concediuSpecial.click();
+	}
+	
+	public void selectSpecialReason(String specV){
+		specialReason.selectByVisibleText(specV).click();
+	}
+	
+	public void clickForAddComment(){
+		addComment.click();
+	}
+	
+	public void addTextAreaComment(String comment){
+		textAreaComment.type(comment);
+	}
+	
 
 	public void settingDateByGivenParameter(int month, int day, int year)
 			throws ParseException {
@@ -77,7 +106,7 @@ public class NewVacationReqPage extends PageObject {
 				previousButton.click();
 			}
 
-		} while (cal.compareTo(calNew) != 0); 
+		} while (cal.compareTo(calNew) != 0);
 		// until month and year are as expected
 
 		// select day
