@@ -26,4 +26,12 @@ public class MyRequestsSteps extends ScenarioSteps {
 	public void click_apply_filter_button(){
 		reqPage.click_apply_filter_button();
 	}
+	@Step
+	public void click_only_future_vacation_button(){
+		reqPage.click_only_future_vacation_button();
+	}
+	@Step
+	public void click_apply_filter_button1(){
+		reqPage.click_apply_filter_button();
+	}
 }

@@ -18,11 +18,11 @@ import com.steps.MyRequestsSteps;
 @RunWith(ThucydidesParameterizedRunner.class)
 @UseTestDataFrom("Resources/filterTestData.csv")
 public class MyRequestsFilterDataDrivenTest {
-	
+
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
-	
-	String Vacation_Type,Days_Number,Vacation_Status;
+
+	String Vacation_Type, Days_Number, Vacation_Status;
 
 	@ManagedPages(defaultUrl = "http://192.168.1.68:9090")
 	public Pages pages;
@@ -43,6 +43,9 @@ public class MyRequestsFilterDataDrivenTest {
 		reqSteps.set_daysnumber_type(Days_Number);
 		reqSteps.set_vacationstatus_type(Vacation_Status);
 		reqSteps.click_apply_filter_button();
+		reqSteps.click_only_future_vacation_button();
+		reqSteps.click_apply_filter_button1();
+
 	}
 
 }
