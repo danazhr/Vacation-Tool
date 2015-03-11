@@ -15,23 +15,11 @@ public class MyReqPage extends PageObject {
 		myRequestButton.click();
 	}
 
-	@FindBy(css = "input[id$='vacationTypeALLCheckbox']")
-	private WebElementFacade allvacationCheckbox;
+	@FindBy(css = ".portlet-msg-info")
+	public WebElementFacade norecordsfoundMessage;
 
-	@FindBy(css = "input[id$='HOLIDAYCheckbox']")
-	private WebElementFacade holidayCechbox;
-
-	@FindBy(css = "input[id$='PAYMENTCheckbox']")
-	private WebElementFacade withoutpaymentCechbox;
-
-	@FindBy(css = "input[id$='VACATIONCheckbox']")
-	private WebElementFacade specialvacationCechbox;
-
-	@FindBy(css = "input[id$='LEAVECheckbox']")
-	private WebElementFacade sickleaveCechbox;
-
-	@FindBy(css = "input[id$='daysNumberALLCheckbox']")
-	private WebElementFacade alldaysnumberCheckbox;
+	@FindBy(css = ".lfr-search-container")
+	public WebElementFacade vacationsTable;
 
 	@FindBy(css = ".filter-content .aui-column-content-first .aui-field-input")
 	private List<WebElementFacade> vacationTypeList;
@@ -68,19 +56,19 @@ public class MyReqPage extends PageObject {
 		}
 		System.out.println("checked");
 	}
-	
+
 	@FindBy(css = ".aui-button-input")
 	private WebElementFacade applyMyRequestButton;
-	
+
 	public void click_apply_filter_button() {
 		applyMyRequestButton.click();
 	}
-	
+
 	@FindBy(css = "span[class$='align-to-left'] .aui-field-input")
 	private WebElementFacade onlyfutureVacationButton;
-	
+
 	public void click_only_future_vacation_button() {
 		onlyfutureVacationButton.click();
 	}
-	
+
 }

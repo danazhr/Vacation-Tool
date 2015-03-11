@@ -20,7 +20,7 @@ public class MyRequestsFilterDataDrivenTest {
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
 
-	String Vacation_Type, Days_Number, Vacation_Status;
+	String Vacation_Type, Days_Number, Vacation_Status,compValue;
 
 	@ManagedPages(defaultUrl = "http://192.168.1.68:9090")
 	public Pages pages;
@@ -41,9 +41,14 @@ public class MyRequestsFilterDataDrivenTest {
 		reqSteps.set_daysnumber_type(Days_Number);
 		reqSteps.set_vacationstatus_type(Vacation_Status);
 		reqSteps.click_apply_filter_button();
+		reqSteps.check_recordsnotfound_message(compValue);
+		reqSteps.check_table();
 		reqSteps.click_only_future_vacation_button();
+		reqSteps.check_table();
+		reqSteps.check_recordsnotfound_message(compValue);
 		reqSteps.click_apply_filter_button1();
-
+		reqSteps.check_table();
+		reqSteps.check_recordsnotfound_message(compValue);
 	}
 
 }
