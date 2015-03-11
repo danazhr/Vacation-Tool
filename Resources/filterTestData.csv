@@ -1,2 +1,4 @@
-Vacation_Type,Days_Number,Vacation_Status
-01000,01000,010000
+Vacation_Type,Days_Number,Vacation_Status,compValue
+01000,000001,000001,No records we're found.
+01000,001000,000000,No records we're found.
+01000,001000,000111,blabla
