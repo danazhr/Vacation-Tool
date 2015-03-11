@@ -17,7 +17,6 @@ import net.thucydides.core.pages.WebElementFacade;
 
 public class InboxPage extends PageObject {
 
-	//@FindBy(css = "li.active-menu a[href*='menuItem=inbox']")
 	@FindBy(css = "li[class*='active-menu'] a[href*='menuItem=inbox']")
 	public WebElementFacade inbox;
 

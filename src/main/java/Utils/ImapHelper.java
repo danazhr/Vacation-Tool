@@ -4,9 +4,6 @@ import java.io.*;
 import java.util.*;
 
 import javax.mail.*;
-import javax.mail.Flags.Flag;
-import javax.mail.internet.*;
-
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 
