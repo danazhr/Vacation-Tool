@@ -21,18 +21,28 @@ public class NewVacationReqSteps extends ScenarioSteps {
 		return newVacationRequest.get_businessDaysOutput();
 	}
 	
+		
+	/**
+	 * @param date format dd/mm/yyyy
+	 * @throws ParseException
+	 */
 	@Step
-	public void setStartDate(int month, int day, int year) throws ParseException{
+	public void setStartDate(String date) throws ParseException{
 		newVacationRequest.click_StartDate();
-		newVacationRequest.settingDateByGivenParameter(month, day, year);
+		newVacationRequest.settingDateByGivenParameter(date);
 	}
 	
-	@Step
-	public void setEndDate(int month, int day, int year) throws ParseException{
+	/**
+	 * @param date format dd/mm/yyyy
+	 * @throws ParseException
+	 */
+	public void setEndDate(String date) throws ParseException {
 		newVacationRequest.click_EndDate();
-		newVacationRequest.settingDateByGivenParameter(month, day, year);
+		newVacationRequest.settingDateByGivenParameter(date);
+		
 	}
 	
+		
 	@Step
 	public void selectConcediuSpecialReason(String specV){
 		newVacationRequest.click_concediuSpecial();
@@ -49,7 +59,5 @@ public class NewVacationReqSteps extends ScenarioSteps {
 	public void clickSaveButton(){
 		newVacationRequest.clickSaveButton();
 	}
-	
-		
 
 }

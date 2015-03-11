@@ -76,4 +76,11 @@ public class MyReqPage extends PageObject {
 		applyMyRequestButton.click();
 	}
 	
+	@FindBy(css = "span[class$='align-to-left'] .aui-field-input")
+	private WebElementFacade onlyfutureVacationButton;
+	
+	public void click_only_future_vacation_button() {
+		onlyfutureVacationButton.click();
+	}
+	
 }
