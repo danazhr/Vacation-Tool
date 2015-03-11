@@ -36,9 +36,18 @@ public class NewVacationReqPage extends PageObject {
 
 	@FindBy(name = "endDate")
 	private WebElementFacade endDateButton;
-
+	
+	/*@FindBy(css = "input[id='_evovacation_WAR_EvoVacationportlet_type_CO']")
+	private WebElementFacade holiday;
+	
+	@FindBy(css = "input[id='_evovacation_WAR_EvoVacationportlet_type_CF']")
+	private WebElementFacade vacationWithoutPayment;
+	
 	@FindBy(css = "input[id='_evovacation_WAR_EvoVacationportlet_type_CS']")
-	private WebElementFacade concediuSpecial;
+	private WebElementFacade specialVacation;
+	
+	@FindBy(css = "input[id='_evovacation_WAR_EvoVacationportlet_type_CM']")
+	private WebElementFacade sickLeave;*/
 
 	@FindBy(css = "select[id='_evovacation_WAR_EvoVacationportlet_specialReason']")
 	private WebElementFacade specialReason;
@@ -64,14 +73,15 @@ public class NewVacationReqPage extends PageObject {
 		startDateButton.click();
 	}
 	
-	public void selectNewVacationType(String check) {
-		for (WebElement i : selectVacationTypeList){
-			if (i.getText().contentEquals(check)) {
-				i.click();
-				break;
+	public void clickVacantionCheckbox(String vacationType) {
+		  List<WebElement> VacationTypes = getDriver().findElements(
+		    By.cssSelector("div[class='vacationTypeChoice'] label"));
+		  for (WebElement type : VacationTypes) {
+		   if (type.getText().toLowerCase().equals(vacationType.toLowerCase()))
+		    type.click();
 			}
 		}
-	}
+	
 
 	/*
 	 * public void getFirstErrorMessage(){ Assert.assertTrue("Test Failed!",
@@ -92,15 +102,28 @@ public class NewVacationReqPage extends PageObject {
 		//selectNewVacationType.
 	}
 
-	public int get_businessDaysOutput() {
+	/*public int get_businessDaysOutput() {
 		System.out.println(businessDaysOutput.getText());
 		return Integer.parseInt(businessDaysOutput.getText());
+	}*/
+	
+	/*public void click_holiday() {
+		holiday.click();
 	}
-
-	public void click_concediuSpecial() {
-		concediuSpecial.click();
+	
+	public void click_vacationWithoutPayment() {
+		vacationWithoutPayment.click();
 	}
-
+	
+	
+	public void click_special_vacation() {
+		specialVacation.click();
+	}
+	
+	public void click_sickLeave() {
+		sickLeave.click();
+	}*/
+	
 	public void selectSpecialReason(String specV) {
 		specialReason.selectByVisibleText(specV).click();
 	}

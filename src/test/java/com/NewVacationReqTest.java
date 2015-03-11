@@ -62,7 +62,10 @@ public class NewVacationReqTest {
 		newVacationReqSteps.setEndDate("15/4/2015");
 		newVacationReqSteps.selectConcediuSpecialReason("Other");
 		newVacationReqSteps.addTextAreaComment("comment");
-		//newVacationReqSteps.clickSaveButton();
+		newVacationReqSteps.clickSaveButton();
+		
+		Object mail;
+		//Utils.CheckingMails.check(mail.evozon.com, storeType, user, password);
 		}
 
 }

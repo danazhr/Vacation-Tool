@@ -18,7 +18,8 @@ public class NewVacationReqSteps extends ScenarioSteps {
 
 	@Step
 	public int get_businessDaysOutput() {
-		return newVacationRequest.get_businessDaysOutput();
+		//return newVacationRequest.get_businessDaysOutput();
+		return 1;
 	}
 	
 		
@@ -45,7 +46,7 @@ public class NewVacationReqSteps extends ScenarioSteps {
 		
 	@Step
 	public void selectConcediuSpecialReason(String specV){
-		newVacationRequest.click_concediuSpecial();
+		//newVacationRequest.click_special_vacation();
 		newVacationRequest.selectSpecialReason(specV);
 		newVacationRequest.clickForAddComment();
 	}
