@@ -34,18 +34,6 @@ public class NewVacationReqPage extends PageObject {
 	@FindBy(name = "endDate")
 	private WebElementFacade endDateButton;
 	
-	/*@FindBy(css = "input[id='_evovacation_WAR_EvoVacationportlet_type_CO']")
-	private WebElementFacade holiday;
-	
-	@FindBy(css = "input[id='_evovacation_WAR_EvoVacationportlet_type_CF']")
-	private WebElementFacade vacationWithoutPayment;
-	
-	@FindBy(css = "input[id='_evovacation_WAR_EvoVacationportlet_type_CS']")
-	private WebElementFacade specialVacation;
-	
-	@FindBy(css = "input[id='_evovacation_WAR_EvoVacationportlet_type_CM']")
-	private WebElementFacade sickLeave;*/
-
 	@FindBy(css = "select[id='_evovacation_WAR_EvoVacationportlet_specialReason']")
 	private WebElementFacade specialReason;
 
@@ -77,7 +65,7 @@ public class NewVacationReqPage extends PageObject {
 		   if (type.getText().toLowerCase().equals(vacationType.toLowerCase()))
 		    type.click();
 			}
-		}
+	}
 	
 
 	/*

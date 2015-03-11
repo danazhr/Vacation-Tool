@@ -53,7 +53,7 @@ public class NewVacationReqSteps extends ScenarioSteps {
 	
 	@Step
 	public void addTextAreaComment(String comment){
-		newVacationRequest.addTextAreaComment(comment);
+		//newVacationRequest.addTextAreaComment(comment);
 	}
 	
 	@Step

@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
+import com.steps.DDNewReqSteps;
 import com.steps.LogInSteps;
 import com.steps.NewVacationReqSteps;
 
@@ -25,9 +26,11 @@ public class DDnewVacationReqTest {
 
 	@ManagedPages(defaultUrl = "http://192.168.1.68:9090")
 	public Pages pages;
+	
+	String StartDate,EndDate,VacationType,Comment;
 
 	@Steps
-	public NewVacationReqSteps newVacationReqSteps;
+	public DDNewReqSteps ddNewReqSteps;
 
 	@Steps
 	public LogInSteps logIn;
@@ -36,13 +39,15 @@ public class DDnewVacationReqTest {
 	public void adding_comment_to_a_special_req_that_was_selected()
 			throws ParseException {
 		logIn.is_the_login_page();
-		logIn.entersUsername("dana.zaharia");
-		logIn.entersPassword("danna");
+		logIn.entersUsername("virginiaanca.oprean");
+		logIn.entersPassword("1234");
 		logIn.clickLogIn();
 		logIn.clickVacation();
-		newVacationReqSteps.click_newVacationReq();
-		newVacationReqSteps.setStartDate("6/4/2015");
-		newVacationReqSteps.setEndDate("15/4/2015");
+		ddNewReqSteps.click_newVacationReq();
+		ddNewReqSteps.setStartDate(StartDate);
+		ddNewReqSteps.setEndDate(EndDate);
+		ddNewReqSteps.setVacationType(VacationType);
+		ddNewReqSteps.clickSaveButton();
 		
 	}
 

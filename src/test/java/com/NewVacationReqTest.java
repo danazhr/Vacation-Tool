@@ -64,8 +64,6 @@ public class NewVacationReqTest {
 		newVacationReqSteps.addTextAreaComment("comment");
 		newVacationReqSteps.clickSaveButton();
 		
-		Object mail;
-		//Utils.CheckingMails.check(mail.evozon.com, storeType, user, password);
 		}
 
 }
