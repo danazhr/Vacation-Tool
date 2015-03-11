@@ -5,10 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 
-import org.junit.Assert;
 import org.openqa.selenium.WebElement;
-
-import com.sun.jna.StringArray;
 
 import net.thucydides.core.annotations.findby.By;
 import net.thucydides.core.annotations.findby.FindBy;

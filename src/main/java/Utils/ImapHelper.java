@@ -13,7 +13,6 @@ import net.thucydides.core.steps.ScenarioSteps;
 import org.junit.Assert;
 
 import com.sun.mail.imap.IMAPFolder;
-import com.sun.mail.imap.IMAPMessage;
 
 public class ImapHelper extends ScenarioSteps{
 
@@ -23,7 +22,6 @@ public class ImapHelper extends ScenarioSteps{
 		Store store = null;
 		String subject = null;
 		String body = null;
-		Flag flag = null;
 		try {
 			Properties props = System.getProperties();
 			props.setProperty("mail.store.protocol", "imaps");

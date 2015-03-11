@@ -2,8 +2,6 @@ package com.steps;
 
 import com.pages.LogInPage;
 import com.pages.HomePage;
-import com.pages.NewVacationReqPage;
-
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 
