@@ -26,8 +26,7 @@ public class ImapHelper extends ScenarioSteps{
 			Session session = Session.getDefaultInstance(props, null);
 
 			store = session.getStore("imaps");
-			store.connect("mail.evozon.com", "daniela.zaharia@evozon.com",
-					"Dana.Radu86");
+			store.connect("mail.evozon.com", "daniela.zaharia@evozon.com", "Dana.Radu86");
 
 			folder = (IMAPFolder) store.getFolder("Inbox"); 
 

@@ -47,19 +47,16 @@ public class NewVacationEmailTest {
 		logIn.clickVacation();
 		newVacationReqSteps.click_newVacationReq();
 		
-		String startDate = "11/06/2015";
-		String endDate = "11/06/2015";
+		String startDate = "13/03/2015";
+		String endDate = "17/03/2015";
 		
 		newVacationReqSteps.setStartDate(startDate);
 		newVacationReqSteps.setEndDate(endDate);
 		newVacationReqSteps.clickSaveButton();
 		
 		String body ="Your holiday interval is: <strong>" + startDate + " - " + endDate + "</strong>.";
-		
-		
+			
 		imapSteps.checkLastEmailSubjectAndBody("You have submitted a new Vacation Request", body);
-		
-		
 		
 		}
 
