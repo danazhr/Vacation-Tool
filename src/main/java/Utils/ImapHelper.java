@@ -26,7 +26,8 @@ public class ImapHelper extends ScenarioSteps{
 			Session session = Session.getDefaultInstance(props, null);
 
 			store = session.getStore("imaps");
-			store.connect("mail.evozon.com", "daniela.zaharia@evozon.com", "Dana.Radu86");
+//			store.connect("mail.evozon.com", "daniela.zaharia@evozon.com", "Dana.Radu86");
+			store.connect("mail.evozon.com", "anca.oprean@evozon.com","Ancuntza.1989");
 
 			folder = (IMAPFolder) store.getFolder("Inbox"); 
 
@@ -55,12 +56,10 @@ public class ImapHelper extends ScenarioSteps{
 			}
 		}
 
-		/*body = body.replace("\r", "");
-		body = body.replace("\n", "");
-		body = body.replace("\t", "");*/
+		
 		Assert.assertTrue(subject.contentEquals(expectedSubject));
 		Assert.assertTrue(body.contains(expectedBody));
-		//Assert.assertTrue(body.contains("11/6/2015"));
+		
 	}
 
 }
