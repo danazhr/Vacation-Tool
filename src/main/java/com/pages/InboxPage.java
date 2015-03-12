@@ -35,8 +35,8 @@ public class InboxPage extends PageObject {
 	@FindBy(css = "td[class*='day.number']")
 	public List<WebElement> daysNumber;
 	
-	@FindBy(css = "td[class*='day.number'] a[href*='vacationId=16001']")
-	public WebElementFacade daysNo;
+	//@FindBy(css = "td[class*='day.number'] a[href*='vacationId=16001']")
+	//public WebElementFacade daysNo;
 	
 	@FindBy(css = "td[class*='.type']")
 	public List<WebElement> types;
