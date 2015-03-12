@@ -72,13 +72,14 @@ public class NewVacationReqPage extends PageObject {
 	}
 
 	public void getFirstErrorMessage() {
-		Assert.assertTrue("Test Failed!",
-				getFirstErrorMessage.getText().toLowerCase().contains
-				(" Your request failed to complete.".toLowerCase()));
+		System.out.println(getFirstErrorMessage.getText().toLowerCase());
+		System.out.println("Your request failed to complete.".toLowerCase());
+		Assert.assertTrue("Test Failed!",getFirstErrorMessage.getText().toLowerCase().contains("Your request failed to complete.".toLowerCase()));
 	}
 	
 	public void getSecondErrorMessage(){
-		Assert.assertTrue("Failed Test!", getSecondErrorMessage.getText().toLowerCase().contains(" You already have a vacation set up overlaping the selected time range. "));
+		System.out.println(getSecondErrorMessage.getText().toLowerCase());
+		Assert.assertTrue("Failed Test!", getSecondErrorMessage.getText().toLowerCase().contains("You already have a vacation set up overlaping the selected time range.".toLowerCase()));
 	}
 
 	public void click_EndDate() {

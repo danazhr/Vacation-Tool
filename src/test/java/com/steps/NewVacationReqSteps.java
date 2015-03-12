@@ -56,6 +56,7 @@ public class NewVacationReqSteps extends ScenarioSteps {
 	public void getSecondErrorMessage() {
 		newVacationRequest.getSecondErrorMessage();
 	}
+	
 	@Step
 	public void selectConcediuSpecialReason(String specV){
 		//newVacationRequest.click_special_vacation();
