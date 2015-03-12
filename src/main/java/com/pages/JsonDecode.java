@@ -3,13 +3,14 @@ package com.pages;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.HttpClientBuilder;
 
-public class OpenWebPage {
+public class JsonDecode {
 
 	public static void main(String[] args) throws ClientProtocolException,
 			IOException {
@@ -35,24 +36,8 @@ public class OpenWebPage {
 		String line = "";
 		while ((line = rd.readLine()) != null) {
 			result.append(line);
-			// System.out.println(line);
+			System.out.println(line);
 		}
-
-		System.out.println(result.toString());
-
-		String strResult = result.toString();
-
-		int index1 = strResult.indexOf("<body");
-		int index2 = strResult.indexOf("</body>");
-		String strNew = strResult.substring(index1, index2);
-		System.out.println(strNew);
-
-		int start_index_of_link = strNew.indexOf("<h3 class=\"r\"><a href=\"");
-		strNew = strNew.substring(start_index_of_link);
-		int end_index_of_link = strNew.indexOf("\" onmousedown");
-		String strLink = strNew.substring(23, end_index_of_link);
-		System.out.println(strLink);
-
 	}
 
 }
