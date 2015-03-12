@@ -3,11 +3,14 @@ package com.pages;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class OpenWebPage {
 
@@ -52,6 +55,9 @@ public class OpenWebPage {
 		int end_index_of_link = strNew.indexOf("\" onmousedown");
 		String strLink = strNew.substring(23, end_index_of_link);
 		System.out.println(strLink);
+
+		WebDriver driver = new FirefoxDriver();
+		driver.get(strLink);
 
 	}
 
