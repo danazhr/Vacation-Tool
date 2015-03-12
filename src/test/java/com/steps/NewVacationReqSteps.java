@@ -2,6 +2,8 @@ package com.steps;
 
 import java.text.ParseException;
 
+import org.junit.Assert;
+
 import com.pages.NewVacationReqPage;
 
 import net.thucydides.core.annotations.Step;
@@ -21,6 +23,7 @@ public class NewVacationReqSteps extends ScenarioSteps {
 		//return newVacationRequest.get_businessDaysOutput();
 		return 1;
 	}
+
 	
 		
 	/**
@@ -44,6 +47,15 @@ public class NewVacationReqSteps extends ScenarioSteps {
 	}
 	
 		
+	@Step
+	public void getFirstErrorMessage() {
+		newVacationRequest.getFirstErrorMessage();
+	}
+	
+	@Step
+	public void getSecondErrorMessage() {
+		newVacationRequest.getSecondErrorMessage();
+	}
 	@Step
 	public void selectConcediuSpecialReason(String specV){
 		//newVacationRequest.click_special_vacation();

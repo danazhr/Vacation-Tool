@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 
 import net.thucydides.core.annotations.findby.By;
@@ -33,7 +34,7 @@ public class NewVacationReqPage extends PageObject {
 
 	@FindBy(name = "endDate")
 	private WebElementFacade endDateButton;
-	
+
 	@FindBy(css = "select[id='_evovacation_WAR_EvoVacationportlet_specialReason']")
 	private WebElementFacade specialReason;
 
@@ -49,31 +50,36 @@ public class NewVacationReqPage extends PageObject {
 	@FindBy(css = ".vacationTypeChoice label")
 	private List<WebElement> selectVacationTypeList;
 
-	/*
-	 * @FindBy(css = "div.portlet-msg-error:first-child") private
-	 * WebElementFacade getFirstErrorMessage;
-	 */
-
+	
+	@FindBy(css = "div.portlet-msg-error:first-child")
+	public WebElementFacade getFirstErrorMessage;
+	 
+    @FindBy(css = "form[name='_evovacation_WAR_EvoVacationportlet_fm'] div.portlet-msg-error")
+	public WebElementFacade getSecondErrorMessage;
+	 
+	
 	public void click_StartDate() {
 		startDateButton.click();
 	}
-	
+
 	public void clickVacantionCheckbox(String vacationType) {
-		  List<WebElement> VacationTypes = getDriver().findElements(
-		    By.cssSelector("div[class='vacationTypeChoice'] label"));
-		  for (WebElement type : VacationTypes) {
-		   if (type.getText().toLowerCase().equals(vacationType.toLowerCase()))
-		    type.click();
-			}
+		List<WebElement> VacationTypes = getDriver().findElements(
+				By.cssSelector("div[class='vacationTypeChoice'] label"));
+		for (WebElement type : VacationTypes) {
+			if (type.getText().toLowerCase().equals(vacationType.toLowerCase()))
+				type.click();
+		}
+	}
+
+	public void getFirstErrorMessage() {
+		Assert.assertTrue("Test Failed!",
+				getFirstErrorMessage.getText().toLowerCase().contains
+				(" Your request failed to complete.".toLowerCase()));
 	}
 	
-
-	/*
-	 * public void getFirstErrorMessage(){ Assert.assertTrue("Test Failed!",
-	 * getFirstErrorMessage
-	 * .getText().toLowerCase().contains(" Your request failed to complete."
-	 * .toLowerCase())); }
-	 */
+	public void getSecondErrorMessage(){
+		Assert.assertTrue("Failed Test!", getSecondErrorMessage.getText().toLowerCase().contains(" You already have a vacation set up overlaping the selected time range. "));
+	}
 
 	public void click_EndDate() {
 		endDateButton.click();
@@ -83,32 +89,13 @@ public class NewVacationReqPage extends PageObject {
 		new_vacation_button.click();
 	}
 
-	public void selectNewVacationType() {
-		//selectNewVacationType.
-	}
+	
+	/*
+	 * public int get_businessDaysOutput() {
+	 * System.out.println(businessDaysOutput.getText()); return
+	 * Integer.parseInt(businessDaysOutput.getText()); }
+	 */
 
-	/*public int get_businessDaysOutput() {
-		System.out.println(businessDaysOutput.getText());
-		return Integer.parseInt(businessDaysOutput.getText());
-	}*/
-	
-	/*public void click_holiday() {
-		holiday.click();
-	}
-	
-	public void click_vacationWithoutPayment() {
-		vacationWithoutPayment.click();
-	}
-	
-	
-	public void click_special_vacation() {
-		specialVacation.click();
-	}
-	
-	public void click_sickLeave() {
-		sickLeave.click();
-	}*/
-	
 	public void selectSpecialReason(String specV) {
 		specialReason.selectByVisibleText(specV).click();
 	}
@@ -125,15 +112,13 @@ public class NewVacationReqPage extends PageObject {
 		saveVacReqButton.click();
 	}
 
-	
 	public void settingDateByGivenParameter(String date) throws ParseException {
-		
+
 		String[] dateList = date.split("/");
-		
+
 		Calendar calNew = Calendar.getInstance();
 		SimpleDateFormat sdfNew = new SimpleDateFormat("dd/MM/yyyy");
-		calNew.setTime(sdfNew.parse("1/" + dateList[1] + "/"
-				+ dateList[2]));
+		calNew.setTime(sdfNew.parse("1/" + dateList[1] + "/" + dateList[2]));
 
 		Calendar cal = Calendar.getInstance();
 
@@ -162,7 +147,7 @@ public class NewVacationReqPage extends PageObject {
 			if (currentDay.getText().contentEquals(String.valueOf(dateList[0])))
 				currentDay.click();
 		}
-		
+
 	}
 
 }
