@@ -18,7 +18,7 @@ import net.thucydides.junit.annotations.UseTestDataFrom;
 import net.thucydides.junit.runners.ThucydidesParameterizedRunner;
 
 @RunWith(ThucydidesParameterizedRunner.class)
-@UseTestDataFrom("Resources/TypeOfHolidayDriven.csv")
+@UseTestDataFrom("Resources/SendVacationReq_4MyReq.csv")
 
 public class DDnewVacationReqTest {
 	@Managed(uniqueSession = true)
@@ -39,8 +39,8 @@ public class DDnewVacationReqTest {
 	public void adding_comment_to_a_special_req_that_was_selected()
 			throws ParseException {
 		logIn.is_the_login_page();
-		logIn.entersUsername("virginiaanca.oprean");
-		logIn.entersPassword("1234");
+		logIn.entersUsername("dana.zaharia");	//virginiaanca.oprean
+		logIn.entersPassword("danna");	//1234
 		logIn.clickLogIn();
 		logIn.clickVacation();
 		ddNewReqSteps.click_newVacationReq();
