@@ -14,10 +14,13 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class OpenWebPage {
 
+
+
 	public static void main(String[] args) throws ClientProtocolException,
 			IOException {
 		// String url = "http://www.google.com/search?q=car";
 		String url = "https://www.google.ro/search?q=car&gws_rd=cr,ssl&ei=8IkBVdL0OvON7AbJsYCYBg#q=car";
+
 
 		HttpClient client = HttpClientBuilder.create().build();
 		HttpGet request = new HttpGet(url);
