@@ -25,7 +25,14 @@ public class ViewVacationSteps extends ScenarioSteps{
 	}
 	
 	@Step
+	public void set_lastName_filter(String lastName){
+		viewVacationPage.set_lastName_filter(lastName);
+	}
+	
+	@Step
 	public void click_apply(){
 		viewVacationPage.click_apply();
 	}
+	
+	
 }

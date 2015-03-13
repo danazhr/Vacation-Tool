@@ -17,6 +17,16 @@ public class ViewVacationPage extends PageObject{
 	@FindBy(css = "input[value='Apply']")
 	public WebElementFacade applyButton;
 	
+	@FindBy(css = "input[name$='_viewVacationsLastName']")
+	public WebElementFacade lastNameFilter;
+	
+	@FindBy(css = "input[name$='_viewVacationsFirstName']")
+	public WebElementFacade firstNameFilter;
+	
+	@FindBy(css = "table[class='taglib-search-iterator']")
+	public WebElementFacade table;
+	
+	
 	public void click_viewVacations() {
 		viewVacations.waitUntilVisible();
 		viewVacations.click();
@@ -31,8 +41,18 @@ public class ViewVacationPage extends PageObject{
 		System.out.println("Interval checked:");
 	}
 	
+	public void check_if_filters_applied_for_table(){
+		
+	}
+	
+	public void set_lastName_filter(String lastName){
+		lastNameFilter.type(lastName);
+		
+	}
+	
 	public void click_apply(){
 		applyButton.click();
+		
 	}
 
 }

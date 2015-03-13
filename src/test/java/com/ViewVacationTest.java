@@ -37,7 +37,8 @@ public class ViewVacationTest {
 		logInSteps.clickLogIn();
 		logInSteps.clickVacation();
 		viewVacationSteps.go_to_viewVacations();
-		viewVacationSteps.set_days_number_filter("6-10");
+		viewVacationSteps.set_days_number_filter("1-5");
+		viewVacationSteps.set_lastName_filter("Oprean");
 		viewVacationSteps.click_apply();
 		
 	}
