@@ -75,7 +75,7 @@ public class InboxTest {
 
 	}
 
-	@Test
+	//@Test
 	public void verify_that_approve_button_works_for_selected_request_and_sends_email()
 			throws ParseException, MessagingException, IOException {
 		logInSteps.is_the_login_page();
@@ -87,15 +87,11 @@ public class InboxTest {
 
 		String employee_name = "Anca Oprean";
 		String start = "12/03/2015";
-		//String end = "03/02/2015";
-		//SimpleDateFormat sdf = new SimpleDateFormat("d/MMMM/yyyy");
 
 		inboxSteps.select_request(employee_name, start);
 		inboxSteps.click_approve_button();
 		inboxSteps.check_if_selected_request_was_approved(employee_name, start);
 
-		
-		//String body = "The Vacation Request submitted by <strong>" + employee_name + "</strong>" + " (in interval: <strong>" + sdf.parse(start) + "</strong>" + " - " + "<strong>"+ sdf.parse(end) + "</strong>)<br />has been <strong>Approved</strong>.";
 		String subject = employee_name + " Vacation Request Approved";
 		String body = "The Vacation Request submitted by <strong>" + employee_name + "</strong>";
 		
@@ -104,7 +100,7 @@ public class InboxTest {
 
 	}
 
-	// @Test
+	//@Test
 	public void verify_that_the_workdays_number_from_table_is_correct()
 			throws ParseException {
 		logInSteps.is_the_login_page();
@@ -113,7 +109,21 @@ public class InboxTest {
 		logInSteps.clickLogIn();
 		logInSteps.clickVacation();
 		inboxSteps.go_to_inbox();
-		inboxSteps.check_if_number_of_workdays_is_correct(startDate, endDate,name);
+		//inboxSteps.check_if_number_of_workdays_is_correct(startDate, endDate,name);//using data driven file
+		inboxSteps.check_if_number_of_workdays_is_correct("02/06/2015","04/06/2015", "Anca Oprean");
+		
 	}
 
+	@Test
+	public void verify_that_the_page_displayed_after_click_an_element_from_table_contains_same_info() {
+		logInSteps.is_the_login_page();
+		logInSteps.entersUsername("dana.zaharia");
+		logInSteps.entersPassword("danna");
+		logInSteps.clickLogIn();
+		logInSteps.clickVacation();
+		inboxSteps.go_to_inbox();
+		inboxSteps.click_specific_link_and_verify_info("Anca Oprean", "02/06/2015");
+		
+	
+}
 }
