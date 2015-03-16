@@ -17,48 +17,48 @@ public class InboxSteps extends ScenarioSteps{
 	InboxPage inboxPage;
 	
 	@Step
-	public void go_to_inbox(){
-		inboxPage.click_inbox();
+	public void goToInbox(){
+		inboxPage.clickInbox();
 	}
 	
 	@Step
-	public int get_inbox_requests_number() {
-		return inboxPage.get_inbox_requests_number();
+	public int getInboxRequestsNumber() {
+		return inboxPage.getInboxRequestsNumber();
 	}
 
 	@Step
-	public int get_table_requests_number() {
-		return inboxPage.get_table_requests_number();
+	public int getTableRequestsNumber() {
+		return inboxPage.getTableRequestsNumber();
 	}
 
 	@Step
-	public void select_request(String employee, String startDate){
-		inboxPage.select_request(employee, startDate);
+	public void selectRequest(String employee, String startDate){
+		inboxPage.selectRequest(employee, startDate);
 	}
 	
 	@Step
-	public int workdays_between_endDate_and_startDate(String start, String end) throws ParseException {
-		return inboxPage.workdays_between_endDate_and_startDate( start, end);
+	public int calculateWorkdaysBetweenEndDateAndStartDate(String start, String end) throws ParseException {
+		return inboxPage.calculateWorkdaysBetweenEndDateAndStartDate( start, end);
 	}
 	
 
 	@Step
-	public void check_if_selected_request_was_approved(String employee, String startDate){
-		inboxPage.check_if_selected_request_was_approved(employee, startDate);
+	public void checkIfSelectedRequestWasApproved(String employee, String startDate){
+		inboxPage.checkIfSelectedRequestWasApproved(employee, startDate);
 	}
 	
 	@Step
-	public void click_approve_button(){
-		inboxPage.click_approve_button();
+	public void clickApproveButton(){
+		inboxPage.clickApproveButton();
 	}
 	
 	@Step
-	public void check_if_number_of_workdays_is_correct(String start, String end, String employee) throws ParseException{
-		Assert.assertEquals("Workdays number is not correct!", inboxPage.workdays_between_endDate_and_startDate(start, end), inboxPage.get_daysNumber_from_table(employee, start));
+	public void checkIfNumberOfWorkdaysIsCorrect(String start, String end, String employee) throws ParseException{
+		Assert.assertEquals("Workdays number is not correct!", inboxPage.calculateWorkdaysBetweenEndDateAndStartDate(start, end), inboxPage.getDaysNumberFromTable(employee, start));
 	}
 	
 	@Step
-	public void click_specific_link_and_verify_info(String employee, String startDate){
-		inboxPage.click_specific_link_and_verify_info(employee, startDate);
+	public void clickSpecificLinkToVerifyInfo(String employee, String startDate){
+		inboxPage.clickSpecificLinkToVerifyInfo(employee, startDate);
 	}
 }

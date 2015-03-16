@@ -7,7 +7,7 @@ import net.thucydides.core.pages.WebElementFacade;
 public class LogInPage extends PageObject {
 
 	@FindBy(id = "sign-in")
-	private WebElementFacade sign_in_button;
+	private WebElementFacade signInButton;
 
 	@FindBy(id = "_58_login")
 	private WebElementFacade username;
@@ -18,11 +18,11 @@ public class LogInPage extends PageObject {
 	@FindBy(css = "[type='submit']")
 	private WebElementFacade login;
 			
-	public void enter_username(String user) {
+	public void enterUsername(String user) {
 		username.type(user);
 	}
 
-	public void enter_password(String pass) {
+	public void enterPassword(String pass) {
 		password.type(pass);
 	}
 
@@ -30,7 +30,7 @@ public class LogInPage extends PageObject {
 		login.click();
 	}
 
-	public void go_to_login() {
-		sign_in_button.click();
+	public void goToLogin() {
+		signInButton.click();
 	}
 }

@@ -12,22 +12,22 @@ public class LogInSteps extends ScenarioSteps {
 	HomePage mainPage;
 		
 	@Step
-	public void is_the_login_page(){
+	public void isTheLoginPage(){
 		loginPage.open();
 		loginPage.getDriver().manage().window().maximize();
-		loginPage.go_to_login();
+		loginPage.goToLogin();
 	}
 	
 	
 	
 	@Step
 	public void entersUsername(String user){
-		loginPage.enter_username(user);
+		loginPage.enterUsername(user);
 	}
 
 	@Step
 	public void entersPassword(String pass){
-		loginPage.enter_password(pass);
+		loginPage.enterPassword(pass);
 	}
 	
 	@Step
@@ -37,7 +37,7 @@ public class LogInSteps extends ScenarioSteps {
 	
 	@Step
 	public void clickVacation(){
-		mainPage.go_to_vacation();
+		mainPage.goToVacation();
 		
 	}
 	

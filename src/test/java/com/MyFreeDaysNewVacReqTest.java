@@ -31,7 +31,7 @@ import com.steps.MyFreeDaysNewVacReqSteps;
 	
 	@Test
 	public void my_free_days_new_request() throws ParseException {
-		logIn.is_the_login_page();
+		logIn.isTheLoginPage();
 		logIn.entersUsername("virginiaanca.oprean");
 		logIn.entersPassword("1234");
 		logIn.clickLogIn();

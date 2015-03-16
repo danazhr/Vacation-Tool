@@ -30,16 +30,16 @@ public class ViewVacationTest {
 	public ViewVacationSteps viewVacationSteps;
 	
 	@Test
-	public void verify_that_filters_applies_on_view_vacations(){
-		logInSteps.is_the_login_page();
+	public void verifyThatFiltersAppliedOnViewVacations(){
+		logInSteps.isTheLoginPage();
 		logInSteps.entersUsername("dana.zaharia");
 		logInSteps.entersPassword("danna");
 		logInSteps.clickLogIn();
 		logInSteps.clickVacation();
-		viewVacationSteps.go_to_viewVacations();
-		viewVacationSteps.set_days_number_filter("1-5");
-		viewVacationSteps.set_lastName_filter("Oprean");
-		viewVacationSteps.click_apply();
+		viewVacationSteps.goToViewVacations();
+		viewVacationSteps.setDaysNumberFilter("1-5");
+		viewVacationSteps.setLastNameFilter("Oprean");
+		viewVacationSteps.clickApply();
 		
 	}
 	
