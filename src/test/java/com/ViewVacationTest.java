@@ -30,16 +30,19 @@ public class ViewVacationTest {
 	public ViewVacationSteps viewVacationSteps;
 	
 	@Test
-	public void verifyThatFiltersAppliedOnViewVacations(){
+	public void verifyThatFiltersAppliedOnViewVacationsAndTableCanBeSorted() throws Exception{
 		logInSteps.isTheLoginPage();
 		logInSteps.entersUsername("dana.zaharia");
 		logInSteps.entersPassword("danna");
 		logInSteps.clickLogIn();
 		logInSteps.clickVacation();
 		viewVacationSteps.goToViewVacations();
-		viewVacationSteps.setDaysNumberFilter("1-5");
-		viewVacationSteps.setLastNameFilter("Oprean");
+		viewVacationSteps.setDaysNumberFilter("1 - 5");
+		viewVacationSteps.setLastNameFilter("Marian");
 		viewVacationSteps.clickApply();
+		viewVacationSteps.checkIfFilterLastnameAppliedForTable("Marian");
+		viewVacationSteps.clickDaysNumberHeaderToSort();
+		viewVacationSteps.checkSortDays();
 		
 	}
 	

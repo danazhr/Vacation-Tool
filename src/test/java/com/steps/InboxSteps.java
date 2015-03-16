@@ -43,8 +43,8 @@ public class InboxSteps extends ScenarioSteps{
 	
 
 	@Step
-	public void checkIfSelectedRequestWasApproved(String employee, String startDate){
-		inboxPage.checkIfSelectedRequestWasApproved(employee, startDate);
+	public void checkIfSelectedRequestWasSubstracted(String employee, String startDate){
+		inboxPage.checkIfSelectedRequestWasSubstracted(employee, startDate);
 	}
 	
 	@Step
@@ -53,7 +53,7 @@ public class InboxSteps extends ScenarioSteps{
 	}
 	
 	@Step
-	public void checkIfNumberOfWorkdaysIsCorrect(String start, String end, String employee) throws ParseException{
+	public void checkIfNumberOfWorkdaysIsCorrectCalculated(String start, String end, String employee) throws ParseException{
 		Assert.assertEquals("Workdays number is not correct!", inboxPage.calculateWorkdaysBetweenEndDateAndStartDate(start, end), inboxPage.getDaysNumberFromTable(employee, start));
 	}
 	
@@ -61,4 +61,20 @@ public class InboxSteps extends ScenarioSteps{
 	public void clickSpecificLinkToVerifyInfo(String employee, String startDate){
 		inboxPage.clickSpecificLinkToVerifyInfo(employee, startDate);
 	}
+	
+	
+	@Step
+	public void clickNameLinkFromTable(String employee, String startDate){
+		inboxPage.clickNameLinkFromTable(employee, startDate);
+	}
+	
+	@Step
+	public void clickRejectButtonFromPageInfo(){
+		inboxPage.clickRejectButtonFromPageInfo();
+	}
+	
+	@Step
+	public void checkIfSuccessMessageWasDisplayed(){
+		inboxPage.checkIfSuccessMessageWasDisplayed();
+		}
 }
