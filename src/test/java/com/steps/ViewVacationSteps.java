@@ -25,8 +25,13 @@ public class ViewVacationSteps extends ScenarioSteps{
 	}
 	
 	@Step
-	public void setLastNameFilter(String lastName){
-		viewVacationPage.setLastNameFilter(lastName);
+	public void setLastNameFilter(String lastname){
+		viewVacationPage.setLastNameFilter(lastname);
+	}
+	
+	@Step
+	public void checkIfFilterLastnameAppliedForTable(String lastname){
+		viewVacationPage.checkIfFilterLastnameAppliedForTable(lastname);
 	}
 	
 	@Step
@@ -34,5 +39,14 @@ public class ViewVacationSteps extends ScenarioSteps{
 		viewVacationPage.clickApply();
 	}
 	
+	public void clickDaysNumberHeaderToSort(){
+		viewVacationPage.clickDaysNumberHeader();
+		
+	}
+	
+	@Step
+	public void checkSortDays() throws Exception{
+		viewVacationPage.checkSortDays();
+	}
 	
 }

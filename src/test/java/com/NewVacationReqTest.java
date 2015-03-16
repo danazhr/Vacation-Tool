@@ -32,7 +32,7 @@ public class NewVacationReqTest {
 	
 	
 	@Test
-	public void addingCommentToSelectedSpecialReq() throws ParseException{
+	public void SelectedTypeOfVaction() throws ParseException{
 		logIn.isTheLoginPage();
 		logIn.entersUsername("dana.zaharia");
 		logIn.entersPassword("danna");
@@ -42,8 +42,7 @@ public class NewVacationReqTest {
 		newVacationReqSteps.setStartDate("11/3/2015");
 		newVacationReqSteps.setEndDate("11/3/2015");
 		newVacationReqSteps.clickSaveButton();
-		//newVacationReqSteps.getFirstErrorMessage();
-		//newVacationReqSteps.getSecondErrorMessage();
+		
 		
 		}
 

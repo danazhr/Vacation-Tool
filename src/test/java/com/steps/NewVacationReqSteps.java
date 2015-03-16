@@ -12,7 +12,8 @@ import net.thucydides.core.steps.ScenarioSteps;
 public class NewVacationReqSteps extends ScenarioSteps {
 
 	NewVacationReqPage newVacationRequest;
-
+	
+	
 	@Step
 	public void clickNewVacationReq() {
 		newVacationRequest.goToNewRequest();
