@@ -33,7 +33,7 @@ public class NewVacationReqTest {
 	
 	@Test
 	public void addingCommentToSelectedSpecialReq() throws ParseException{
-		logIn.is_the_login_page();
+		logIn.isTheLoginPage();
 		logIn.entersUsername("dana.zaharia");
 		logIn.entersPassword("danna");
 		logIn.clickLogIn();
