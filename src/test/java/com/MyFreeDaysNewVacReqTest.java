@@ -36,12 +36,12 @@ import com.steps.MyFreeDaysNewVacReqSteps;
 		logIn.entersPassword("1234");
 		logIn.clickLogIn();
 		logIn.clickVacation();
-		myFreeDaysNewReqTest.click_my_request();
-		myFreeDaysNewReqTest.get_Index_Number();
-		myFreeDaysNewReqTest.go_to_new_request();
-		myFreeDaysNewReqTest.click_start_date("10/08/2015");
-		myFreeDaysNewReqTest.click_end_date("10/08/2015");
-		myFreeDaysNewReqTest.click_Save_Button();
+		myFreeDaysNewReqTest.clickMyRequest();
+		myFreeDaysNewReqTest.getIndexNumber();
+		myFreeDaysNewReqTest.goToNewRequest();
+		myFreeDaysNewReqTest.clickStartDate("10/08/2015");
+		myFreeDaysNewReqTest.clickEndDate("10/08/2015");
+		myFreeDaysNewReqTest.clickSaveButton();
 	}
 	
 

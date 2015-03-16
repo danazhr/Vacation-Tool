@@ -45,7 +45,7 @@ public class NewVacationEmailTest {
 		logIn.entersPassword("1234");
 		logIn.clickLogIn();
 		logIn.clickVacation();
-		newVacationReqSteps.click_newVacationReq();
+		newVacationReqSteps.clickNewVacationReq();
 		
 		String startDate = "13/03/2015";
 		String endDate = "17/03/2015";

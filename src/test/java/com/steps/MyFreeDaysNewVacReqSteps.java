@@ -12,18 +12,18 @@ public class MyFreeDaysNewVacReqSteps extends ScenarioSteps {
 	MyFreeDaysNewVacReqPage myFreeDaysNewVacReq;
 
 	@Step
-	public void click_my_request() {
-		myFreeDaysNewVacReq.go_to_my_free_days();
+	public void clickMyRequest() {
+		myFreeDaysNewVacReq.goToMyFreeDays();
 	}
 
 	@Step
-	public void get_Index_Number() {
+	public void getIndexNumber() {
 		myFreeDaysNewVacReq.getInboxNumber();
 	}
 
 	@Step
-	public void go_to_new_request() {
-		myFreeDaysNewVacReq.go_to_new_request();
+	public void goToNewRequest() {
+		myFreeDaysNewVacReq.goToNewRequest();
 	}
 
 	
@@ -32,8 +32,8 @@ public class MyFreeDaysNewVacReqSteps extends ScenarioSteps {
 	 * @throws ParseException
 	 */
 	@Step
-	public void click_start_date(String date) throws ParseException {
-		myFreeDaysNewVacReq.click_start_date();
+	public void clickStartDate(String date) throws ParseException {
+		myFreeDaysNewVacReq.clickStartDate();
 		myFreeDaysNewVacReq.settingDateByGivenParameter(date);
 	}
 
@@ -43,14 +43,14 @@ public class MyFreeDaysNewVacReqSteps extends ScenarioSteps {
 	 * @throws ParseException
 	 */
 	@Step
-	public void click_end_date(String date) throws ParseException {
-		myFreeDaysNewVacReq.click_end_date();
+	public void clickEndDate(String date) throws ParseException {
+		myFreeDaysNewVacReq.clickEndDate();
 		myFreeDaysNewVacReq.settingDateByGivenParameter(date);
 	}
 
 	@Step
-	public void click_Save_Button() {
-		myFreeDaysNewVacReq.click_save_button();
+	public void clickSaveButton() {
+		myFreeDaysNewVacReq.clickSaveButton();
 	}
 
 }
