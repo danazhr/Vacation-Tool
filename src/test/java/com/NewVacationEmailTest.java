@@ -40,12 +40,12 @@ public class NewVacationEmailTest {
 	
 	@Test
 	public void adding_comment_to_a_special_req_that_was_selected() throws ParseException, MessagingException, IOException{
-		logIn.is_the_login_page();
+		logIn.isTheLoginPage();
 		logIn.entersUsername("virginiaanca.oprean");
 		logIn.entersPassword("1234");
 		logIn.clickLogIn();
 		logIn.clickVacation();
-		newVacationReqSteps.click_newVacationReq();
+		newVacationReqSteps.clickNewVacationReq();
 		
 		String startDate = "13/03/2015";
 		String endDate = "17/03/2015";

@@ -27,12 +27,12 @@ public class ViewVacationPage extends PageObject{
 	public WebElementFacade table;
 	
 	
-	public void click_viewVacations() {
+	public void clickViewVacations() {
 		viewVacations.waitUntilVisible();
 		viewVacations.click();
 	}
 	
-	public void set_days_number_filter(String interval){
+	public void setDaysNumberFilter(String interval){
 		for (int i = 1; i < interval.length(); i++) {
 			if (interval.charAt(i) == '1') {
 				element(daysNumber.get(i)).click();
@@ -45,12 +45,12 @@ public class ViewVacationPage extends PageObject{
 		
 	}
 	
-	public void set_lastName_filter(String lastName){
+	public void setLastNameFilter(String lastName){
 		lastNameFilter.type(lastName);
 		
 	}
 	
-	public void click_apply(){
+	public void clickApply(){
 		applyButton.click();
 		
 	}

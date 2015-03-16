@@ -18,7 +18,7 @@ import net.thucydides.junit.annotations.UseTestDataFrom;
 import net.thucydides.junit.runners.ThucydidesParameterizedRunner;
 
 @RunWith(ThucydidesParameterizedRunner.class)
-@UseTestDataFrom("Resources/SendVacationReq_4MyReq.csv")
+@UseTestDataFrom("Resources/TypeOfHolidayDriven.csv")
 
 public class DDnewVacationReqTest {
 	@Managed(uniqueSession = true)
@@ -27,7 +27,7 @@ public class DDnewVacationReqTest {
 	@ManagedPages(defaultUrl = "http://192.168.1.68:9090")
 	public Pages pages;
 	
-	String StartDate,EndDate,VacationType,Comment;
+	String StartDate,EndDate,VacationType,Reason,Comment;
 
 	@Steps
 	public DDNewReqSteps ddNewReqSteps;
@@ -36,17 +36,19 @@ public class DDnewVacationReqTest {
 	public LogInSteps logIn;
 
 	@Test
-	public void adding_comment_to_a_special_req_that_was_selected()
+	public void addingcCommentToSelectedSpecialReq()
 			throws ParseException {
 		logIn.is_the_login_page();
-		logIn.entersUsername("dana.zaharia");	//virginiaanca.oprean
-		logIn.entersPassword("danna");	//1234
+		logIn.entersUsername("virginiaanca.oprean");	//dana.zaharia
+		logIn.entersPassword("1234");	//danna
 		logIn.clickLogIn();
 		logIn.clickVacation();
-		ddNewReqSteps.click_newVacationReq();
+		ddNewReqSteps.clickNewVacationReq();
 		ddNewReqSteps.setStartDate(StartDate);
 		ddNewReqSteps.setEndDate(EndDate);
 		ddNewReqSteps.setVacationType(VacationType);
+		ddNewReqSteps.selectSpecialReason("reason");
+		ddNewReqSteps.addTextAreaComment("comment");
 		ddNewReqSteps.clickSaveButton();
 		
 	}

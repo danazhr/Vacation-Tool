@@ -12,8 +12,8 @@ public class DDNewReqSteps extends ScenarioSteps {
 	NewVacationReqPage ddReqPage;
 	
 	@Step
-	public void click_newVacationReq() {
-		ddReqPage.go_to_new_request();
+	public void clickNewVacationReq() {
+		ddReqPage.goToNewRequest();
 	}
 	
 	/**
@@ -22,7 +22,7 @@ public class DDNewReqSteps extends ScenarioSteps {
 	 */
 	@Step
 	public void setStartDate(String date) throws ParseException{
-		ddReqPage.click_StartDate();
+		ddReqPage.clickStartDate();
 		ddReqPage.settingDateByGivenParameter(date);
 	}
 	
@@ -32,7 +32,7 @@ public class DDNewReqSteps extends ScenarioSteps {
 	 */
 	@Step
 	public void setEndDate(String date) throws ParseException {
-		ddReqPage.click_EndDate();
+		ddReqPage.clickEndDate();
 		ddReqPage.settingDateByGivenParameter(date);
 	}
 	
@@ -42,11 +42,22 @@ public class DDNewReqSteps extends ScenarioSteps {
 	}
 	
 	@Step
+	public void selectSpecialReason(String specV) {
+		ddReqPage.selectSpecialReason(specV);
+	}
+	
+	
+	@Step
+	public void addTextAreaComment(String comment) {
+	ddReqPage.addTextAreaComment(comment);
+    }
+
+	
+	@Step
 	public void clickSaveButton() {
 		ddReqPage.clickSaveButton();
 	}
 	
 
 }
-
 

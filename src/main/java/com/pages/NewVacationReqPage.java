@@ -15,7 +15,7 @@ import net.thucydides.core.pages.WebElementFacade;
 
 public class NewVacationReqPage extends PageObject {
 	@FindBy(css = "a[href$='new-request']")
-	private WebElementFacade new_vacation_button;
+	private WebElementFacade newVacationButton;
 
 	@FindBy(css = "#selectedDaysContainer #businessDaysOutput")
 	private WebElementFacade businessDaysOutput;
@@ -49,6 +49,9 @@ public class NewVacationReqPage extends PageObject {
 
 	@FindBy(css = ".vacationTypeChoice label")
 	private List<WebElement> selectVacationTypeList;
+	
+	@FindBy(css = "div.optionalComment")
+	private WebElementFacade addOptionalComment;
 
 	
 	@FindBy(css = "div.portlet-msg-error:first-child")
@@ -58,7 +61,7 @@ public class NewVacationReqPage extends PageObject {
 	public WebElementFacade getSecondErrorMessage;
 	 
 	
-	public void click_StartDate() {
+	public void clickStartDate() {
 		startDateButton.click();
 	}
 
@@ -82,27 +85,25 @@ public class NewVacationReqPage extends PageObject {
 		Assert.assertTrue("Failed Test!", getSecondErrorMessage.getText().toLowerCase().contains("You already have a vacation set up overlaping the selected time range.".toLowerCase()));
 	}
 
-	public void click_EndDate() {
+	public void clickEndDate() {
 		endDateButton.click();
 	}
 
-	public void go_to_new_request() {
-		new_vacation_button.click();
+	public void goToNewRequest() {
+		newVacationButton.click();
 	}
 
 	
-	/*
-	 * public int get_businessDaysOutput() {
-	 * System.out.println(businessDaysOutput.getText()); return
-	 * Integer.parseInt(businessDaysOutput.getText()); }
-	 */
-
 	public void selectSpecialReason(String specV) {
 		specialReason.selectByVisibleText(specV).click();
 	}
 
 	public void clickForAddComment() {
 		addComment.click();
+	}
+	
+	public void clickAddOptionalComment() {
+		addOptionalComment.click();
 	}
 
 	public void addTextAreaComment(String comment) {

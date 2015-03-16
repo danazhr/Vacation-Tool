@@ -14,56 +14,56 @@ import net.thucydides.core.pages.WebElementFacade;
 
 public class MyFreeDaysNewVacReqPage extends PageObject {
 	@FindBy(css = "a[href$='my-free-days']")
-	private WebElementFacade my_free_days_button;
+	private WebElementFacade myFreeDaysButton;
 
 	@FindBy(css = "tr.section-result td:nth-child(2)")
-	private WebElementFacade available_days;
+	private WebElementFacade availableDays;
 
 	@FindBy(css = "a[href$='new-request']")
-	private WebElementFacade new_vacation_button;
+	private WebElementFacade newVacationButton;
 
 	@FindBy(css = "div[style*='block'] td.dp_caption")
-	private WebElementFacade calendar_title;
+	private WebElementFacade calendarTitle;
 
 	@FindBy(css = "div[style*='block'] td.dp_next")
-	private WebElementFacade next_button;
+	private WebElementFacade nextButton;
 
 	@FindBy(css = "div[style*='block'] td.dp_previous")
-	private WebElementFacade previous_button;
+	private WebElementFacade previousButton;
 
 	@FindBy(name = "startDate")
-	private WebElementFacade start_date_button;
+	private WebElementFacade startDateButton;
 
 	@FindBy(name = "endDate")
-	private WebElementFacade end_date_button;
+	private WebElementFacade endDateButton;
 
 	@FindBy(css = ".vacationTypeChoice label")
-	private List<WebElement> select_vacation_type_list;
+	private List<WebElement> selectVacationTypeList;
 
 	@FindBy(css = "input[id='_evovacation_WAR_EvoVacationportlet_saveButton']")
-	private WebElementFacade save_vac_req_button;
+	private WebElementFacade saveVacReqButton;
 
-	public void go_to_my_free_days() {
-		my_free_days_button.click();
+	public void goToMyFreeDays() {
+		myFreeDaysButton.click();
 	}
 
 	public int getInboxNumber() {
-	String aString = available_days.getText();
+	String aString = availableDays.getText();
 	String nr = aString.replaceAll("^0-9", "");
 	int aInt = Integer.parseInt(nr);
 	return aInt;
 	}
 	
-	public void go_to_new_request() {
-		new_vacation_button.click();
+	public void goToNewRequest() {
+		newVacationButton.click();
 	}
 
-	public void click_start_date() {
-		start_date_button.click();
+	public void clickStartDate() {
+		startDateButton.click();
 	}
 
-	public void click_end_date() {
-		end_date_button.click();
+	public void clickEndDate() {
+		endDateButton.click();
 	}
 	
 	public void settingDateByGivenParameter(String date) throws ParseException {
@@ -78,17 +78,17 @@ public class MyFreeDaysNewVacReqPage extends PageObject {
 
 		do {
 			// get calendar title and create calendar value
-			element(calendar_title).waitUntilVisible();
-			String MandY = calendar_title.getText();
+			element(calendarTitle).waitUntilVisible();
+			String MandY = calendarTitle.getText();
 			SimpleDateFormat sdf = new SimpleDateFormat("MMM, yyyy dd");
 			cal.setTime(sdf.parse(MandY + " 1"));
 
 			// go previous or next based on comparison
 			if (cal.compareTo(calNew) == -1) {
-				next_button.click();
+				nextButton.click();
 			}
 			if (cal.compareTo(calNew) == 1) {
-				previous_button.click();
+				previousButton.click();
 			}
 
 		} while (cal.compareTo(calNew) != 0);
@@ -112,8 +112,8 @@ public class MyFreeDaysNewVacReqPage extends PageObject {
 		}
 	}
 	
-	public void click_save_button() {
-		save_vac_req_button.click();
+	public void clickSaveButton() {
+		saveVacReqButton.click();
 	}
 }
 

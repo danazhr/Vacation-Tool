@@ -7,11 +7,11 @@ import net.thucydides.core.pages.WebElementFacade;
 public class HomePage extends PageObject {
 	
 	@FindBy(css = "a[href*='vacation']")
-	private WebElementFacade vacation_button;
+	private WebElementFacade vacationButton;
 	
-	public void go_to_vacation() {
-		vacation_button.waitUntilVisible();
-		vacation_button.click();
+	public void goToVacation() {
+		vacationButton.waitUntilVisible();
+		vacationButton.click();
 	}
 
 }

@@ -14,12 +14,12 @@ public class NewVacationReqSteps extends ScenarioSteps {
 	NewVacationReqPage newVacationRequest;
 
 	@Step
-	public void click_newVacationReq() {
-		newVacationRequest.go_to_new_request();
+	public void clickNewVacationReq() {
+		newVacationRequest.goToNewRequest();
 	}
 
 	@Step
-	public int get_businessDaysOutput() {
+	public int getBusinessDaysOutput() {
 		//return newVacationRequest.get_businessDaysOutput();
 		return 1;
 	}
@@ -32,7 +32,7 @@ public class NewVacationReqSteps extends ScenarioSteps {
 	 */
 	@Step
 	public void setStartDate(String date) throws ParseException{
-		newVacationRequest.click_StartDate();
+		newVacationRequest.clickStartDate();
 		newVacationRequest.settingDateByGivenParameter(date);
 	}
 	
@@ -41,7 +41,7 @@ public class NewVacationReqSteps extends ScenarioSteps {
 	 * @throws ParseException
 	 */
 	public void setEndDate(String date) throws ParseException {
-		newVacationRequest.click_EndDate();
+		newVacationRequest.clickEndDate();
 		newVacationRequest.settingDateByGivenParameter(date);
 		
 	}
@@ -57,18 +57,7 @@ public class NewVacationReqSteps extends ScenarioSteps {
 		newVacationRequest.getSecondErrorMessage();
 	}
 	
-	@Step
-	public void selectConcediuSpecialReason(String specV){
-		//newVacationRequest.click_special_vacation();
-		newVacationRequest.selectSpecialReason(specV);
-		newVacationRequest.clickForAddComment();
-	}
-	
-	@Step
-	public void addTextAreaComment(String comment){
-		//newVacationRequest.addTextAreaComment(comment);
-	}
-	
+		
 	@Step
 	public void clickSaveButton(){
 		newVacationRequest.clickSaveButton();
