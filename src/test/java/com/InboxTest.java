@@ -26,8 +26,8 @@ import net.thucydides.junit.runners.ThucydidesParameterizedRunner;
 import net.thucydides.junit.runners.ThucydidesRunner;
 
 @RunWith(ThucydidesRunner.class)
-//@RunWith(ThucydidesParameterizedRunner.class)
-//@UseTestDataFrom("Resources/DifferentStartAndEndDatesReq.csv")
+// @RunWith(ThucydidesParameterizedRunner.class)
+// @UseTestDataFrom("Resources/DifferentStartAndEndDatesReq.csv")
 public class InboxTest {
 
 	@Managed(uniqueSession = true)
@@ -61,8 +61,7 @@ public class InboxTest {
 	}
 
 	// @Test
-	public void verifyThatApproveButtonWorksForSelectedRequestAndDeleteItFromTable()
-			throws ParseException {
+	public void verifyThatApproveButtonWorksForSelectedRequestAndDeletesItFromTable() {
 		logInSteps.isTheLoginPage();
 		logInSteps.entersUsername("dana.zaharia");
 		logInSteps.entersPassword("danna");
@@ -71,11 +70,12 @@ public class InboxTest {
 		inboxSteps.goToInbox();
 		inboxSteps.selectRequest("Anca Oprean", "14/05/2015");
 		inboxSteps.clickApproveButton();
-		inboxSteps.checkIfSelectedRequestWasApproved("Anca Oprean","14/05/2015");
+		inboxSteps.checkIfSelectedRequestWasSubstracted("Anca Oprean",
+				"14/05/2015");
 
 	}
 
-	//@Test
+	// @Test
 	public void verifyThatApproveButtonWorksForSelectedRequestAndSendsEmail()
 			throws ParseException, MessagingException, IOException {
 		logInSteps.isTheLoginPage();
@@ -85,22 +85,22 @@ public class InboxTest {
 		logInSteps.clickVacation();
 		inboxSteps.goToInbox();
 
-		String employee_name = "Anca Oprean";
+		String employeeName = "Anca Oprean";
 		String start = "12/03/2015";
 
-		inboxSteps.selectRequest(employee_name, start);
+		inboxSteps.selectRequest(employeeName, start);
 		inboxSteps.clickApproveButton();
-		inboxSteps.checkIfSelectedRequestWasApproved(employee_name, start);
+		inboxSteps.checkIfSelectedRequestWasSubstracted(employeeName, start);
 
-		String subject = employee_name + " Vacation Request Approved";
-		String body = "The Vacation Request submitted by <strong>" + employee_name + "</strong>";
-		
-		
+		String subject = employeeName + " Vacation Request Approved";
+		String body = "The Vacation Request submitted by <strong>"
+				+ employeeName + "</strong>";
+
 		imapSteps.checkLastEmailSubjectAndBody(subject, body);
 
 	}
 
-	//@Test
+	// @Test
 	public void verifyThatTheWorkdaysNumberFromTableIsCorrect()
 			throws ParseException {
 		logInSteps.isTheLoginPage();
@@ -109,12 +109,14 @@ public class InboxTest {
 		logInSteps.clickLogIn();
 		logInSteps.clickVacation();
 		inboxSteps.goToInbox();
-		//inboxSteps.check_if_number_of_workdays_is_correct(startDate, endDate,name);//using data driven file
-		inboxSteps.checkIfNumberOfWorkdaysIsCorrect("02/06/2015","04/06/2015", "Anca Oprean");
-		
+		inboxSteps.checkIfNumberOfWorkdaysIsCorrectCalculated(startDate,
+				endDate, name);// using data driven file
+		// inboxSteps.checkIfNumberOfWorkdaysIsCorrectCalculated("02/06/2015","04/06/2015",
+		// "Anca Oprean");
+
 	}
 
-	@Test
+	//@Test
 	public void verifyThatByClickingElementsFromTheSameRowOfTableItOpensTheSamePageInfo() {
 		logInSteps.isTheLoginPage();
 		logInSteps.entersUsername("dana.zaharia");
@@ -123,7 +125,21 @@ public class InboxTest {
 		logInSteps.clickVacation();
 		inboxSteps.goToInbox();
 		inboxSteps.clickSpecificLinkToVerifyInfo("Anca Oprean", "02/06/2015");
-		
+
+	}
 	
-}
+	@Test
+	public void verifyThatRejectButtonFromPageInfoWorksAndDeletesTheRequestFromTable() {
+		logInSteps.isTheLoginPage();
+		logInSteps.entersUsername("dana.zaharia");
+		logInSteps.entersPassword("danna");
+		logInSteps.clickLogIn();
+		logInSteps.clickVacation();
+		inboxSteps.goToInbox();
+		inboxSteps.clickNameLinkFromTable("Anca Oprean", "10/08/2015");
+		inboxSteps.clickRejectButtonFromPageInfo();
+		inboxSteps.checkIfSelectedRequestWasSubstracted("Anca Oprean","10/08/2015");
+		inboxSteps.checkIfSuccessMessageWasDisplayed();
+
+	}
 }

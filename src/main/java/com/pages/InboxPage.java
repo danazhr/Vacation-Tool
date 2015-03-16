@@ -39,8 +39,14 @@ public class InboxPage extends PageObject {
 	public List<WebElement> types;
 			
 	
-	@FindBy(css = "input[value='Approve']")
+	/*@FindBy(css = "input[value='Approve']")
+	public WebElementFacade approveButton;*/
+	
+	@FindBy(css = "span[class*='aui-field-inline'] input[value='Approve']")
 	public WebElementFacade approveButton;
+	
+	@FindBy(css = "div[class='action-buttons'] input[value='Reject']")
+	public WebElementFacade rejectButtonPageInfo;
 	
 	@FindBy(xpath = "//div[@class='vacation-info-row align-to-left employee-info'][1]")
 	public WebElementFacade employeeInfo;
@@ -54,6 +60,9 @@ public class InboxPage extends PageObject {
 	@FindBy(css = "span.header-back-to a")
 	public WebElementFacade backButton;
 	
+	@FindBy(css = "div[class='portlet-msg-success']")
+	public WebElementFacade successMsg;
+		
 
 	public void clickInbox() {
 		inbox.waitUntilVisible();
@@ -81,6 +90,22 @@ public class InboxPage extends PageObject {
 			}
 		}
 	}
+	
+	public void clickNameLinkFromTable(String employee, String startDate){
+		for(WebElement name : names){
+			if (name.getText().contains(employee)){
+				for(int i = 0; i < startDates.size(); i++){
+					if(startDates.get(i).getText().contains(startDate)){
+						names.get(i).click();						
+					}
+				}
+				break;
+			}
+		}
+	}
+	
+	
+	
 	
 	public void clickSpecificLinkToVerifyInfo(String employee, String startDate){
 		for(WebElement name : names){
@@ -133,7 +158,7 @@ public class InboxPage extends PageObject {
 	}
 
 
-	public void checkIfSelectedRequestWasApproved(String employee,String startDate) {
+	public void checkIfSelectedRequestWasSubstracted(String employee,String startDate) {
 		boolean found = false;
 		for (WebElement name : names) {
 			if (name.getText().contains(employee)) {
@@ -147,6 +172,11 @@ public class InboxPage extends PageObject {
 		}
 		Assert.assertFalse("Request was found!", found);
 	}
+	
+	public void checkIfSuccessMessageWasDisplayed(){
+		Assert.assertTrue("Request not approved or rejected!", successMsg.isVisible() && successMsg.getText().contains("Your request completed successfully."));
+	}
+	
 	
 	
 	public int calculateWorkdaysBetweenEndDateAndStartDate(String start, String end) throws ParseException {
@@ -192,6 +222,10 @@ public class InboxPage extends PageObject {
 			}
 		}
 			return Integer.parseInt(d);
+	}
+	
+	public void clickRejectButtonFromPageInfo(){
+		rejectButtonPageInfo.click();
 	}
 			
 }
