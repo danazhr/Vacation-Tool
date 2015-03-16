@@ -38,7 +38,7 @@ public class DDnewVacationReqTest {
 	@Test
 	public void addingcCommentToSelectedSpecialReq()
 			throws ParseException {
-		logIn.is_the_login_page();
+		logIn.isTheLoginPage();
 		logIn.entersUsername("virginiaanca.oprean");	//dana.zaharia
 		logIn.entersPassword("1234");	//danna
 		logIn.clickLogIn();
@@ -48,6 +48,7 @@ public class DDnewVacationReqTest {
 		ddNewReqSteps.setEndDate(EndDate);
 		ddNewReqSteps.setVacationType(VacationType);
 		ddNewReqSteps.selectSpecialReason("reason");
+		ddNewReqSteps.addOptinalComment();
 		ddNewReqSteps.addTextAreaComment("comment");
 		ddNewReqSteps.clickSaveButton();
 		
