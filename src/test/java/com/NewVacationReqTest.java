@@ -42,8 +42,8 @@ public class NewVacationReqTest {
 		newVacationReqSteps.setStartDate("11/3/2015");
 		newVacationReqSteps.setEndDate("11/3/2015");
 		newVacationReqSteps.clickSaveButton();
-		newVacationReqSteps.getFirstErrorMessage();
-		newVacationReqSteps.getSecondErrorMessage();
+		//newVacationReqSteps.getFirstErrorMessage();
+		//newVacationReqSteps.getSecondErrorMessage();
 		
 		}
 
