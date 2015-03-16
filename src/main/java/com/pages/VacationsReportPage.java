@@ -12,6 +12,9 @@ import org.openqa.selenium.support.FindAll;
 
 public class VacationsReportPage extends MyReqPage {
 
+	@FindBy(css = ".portlet-msg-info")
+	public WebElementFacade nousersfoundMessage;
+
 	@FindBy(css = "a[href$='vacation-report']")
 	private WebElementFacade vacationreportButton;
 
@@ -48,19 +51,25 @@ public class VacationsReportPage extends MyReqPage {
 
 	public void check_Last_Name(String lastname_input) {
 
-		
-		//Assert.assertTrue("Inputul nu este continut",
-		//		tablenameList.toString().contains(lastname_input));
-		 for (WebElement lastname_element : tablenameList) 
-		 {
-			 
-			 //Daca stringul este prezent , sa fie afisate elementele care contin stringul respectiv
-			 
-			
-			 Assert.assertTrue(lastname_element.getText().equalsIgnoreCase(lastname_input));		     		     	     
-		 }
-		 //Assert.assertTrue("Mesajul nu este afisat",norecordsfoundMessage.isDisplayed());  
-		
-	}
+		if (tablenameList.size() > 0) {
+			for (WebElement lastname_element : tablenameList) {
 
+				// Daca stringul este prezent , sa fie afisate elementele care
+				// contin stringul respectiv
+
+				if ((lastname_element.getText().contentEquals(lastname_input))) {
+					System.out
+							.print("!!!!!!!!!!!!!!!!!  I found my request  !!! "
+									+ lastname_element.getText());
+
+					/*
+					 * } else { Assert.assertTrue("Mesajul nu este afisat",
+					 * norecordsfoundMessage .isDisplayed());
+					 * 
+					 * }
+					 */
+				}
+			}
+		}
+	}
 }
