@@ -50,7 +50,7 @@ public class NewVacationReqPage extends PageObject {
 	@FindBy(css = ".vacationTypeChoice label")
 	private List<WebElement> selectVacationTypeList;
 	
-	@FindBy(css = "div.optionalComment")
+	@FindBy(css = "div#_evovacation_WAR_EvoVacationportlet_newVacationComment")
 	private WebElementFacade addOptionalComment;
 
 	

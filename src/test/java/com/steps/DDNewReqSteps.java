@@ -46,6 +46,11 @@ public class DDNewReqSteps extends ScenarioSteps {
 		ddReqPage.selectSpecialReason(specV);
 	}
 	
+	@Step
+	public void addOptinalComment() {
+		ddReqPage.clickAddOptionalComment();
+	}
+	
 	
 	@Step
 	public void addTextAreaComment(String comment) {

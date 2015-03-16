@@ -48,6 +48,7 @@ public class DDnewVacationReqTest {
 		ddNewReqSteps.setEndDate(EndDate);
 		ddNewReqSteps.setVacationType(VacationType);
 		ddNewReqSteps.selectSpecialReason("reason");
+		ddNewReqSteps.addOptinalComment();
 		ddNewReqSteps.addTextAreaComment("comment");
 		ddNewReqSteps.clickSaveButton();
 		
