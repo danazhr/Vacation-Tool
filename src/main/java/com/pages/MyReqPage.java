@@ -24,7 +24,19 @@ public class MyReqPage extends PageObject {
 	@FindBy(css = ".filter-content .aui-column-content-first .aui-field-input")
 	private List<WebElementFacade> vacationTypeList;
 
-	public void set_vacation_type(String checks) {
+	@FindBy(css = " div[class$='column-center '] .aui-field-input")
+	private List<WebElementFacade> daysnumberTypeList;
+
+	@FindBy(css = "div[class$='aui-column column-three column-center aui-column-last'] div:nth-child(2) .aui-field-input ")
+	private List<WebElementFacade> vacationstatusTypeList;
+	
+	@FindBy(css = ".aui-button-input")
+	private WebElementFacade applyMyRequestButton;
+	
+	@FindBy(css = "span[class$='align-to-left'] .aui-field-input")
+	private WebElementFacade onlyfutureVacationButton;
+	
+	public void setVacationType(String checks) {
 		for (int i = 1; i < checks.length(); i++) {
 			if (checks.charAt(i) == '1') {
 				element(vacationTypeList.get(i)).click();
@@ -33,10 +45,8 @@ public class MyReqPage extends PageObject {
 		System.out.println("checked");
 	}
 
-	@FindBy(css = " div[class$='column-center '] .aui-field-input")
-	private List<WebElementFacade> daysnumberTypeList;
-
-	public void set_daysnumber_type(String checks) {
+	
+	public void setDaysNumberTyp(String checks) {
 		for (int i = 1; i < checks.length(); i++) {
 			if (checks.charAt(i) == '1') {
 				element(daysnumberTypeList.get(i)).click();
@@ -45,10 +55,9 @@ public class MyReqPage extends PageObject {
 		System.out.println("checked");
 	}
 
-	@FindBy(css = "div[class$='aui-column column-three column-center aui-column-last'] div:nth-child(2) .aui-field-input ")
-	private List<WebElementFacade> vacationstatusTypeList;
+	
 
-	public void set_vacationstatus_type(String checks) {
+	public void setVacationStatusType(String checks) {
 		for (int i = 1; i < checks.length(); i++) {
 			if (checks.charAt(i) == '1') {
 				element(vacationstatusTypeList.get(i)).click();
@@ -57,17 +66,13 @@ public class MyReqPage extends PageObject {
 		System.out.println("checked");
 	}
 
-	@FindBy(css = ".aui-button-input")
-	private WebElementFacade applyMyRequestButton;
-
-	public void click_apply_filter_button() {
+	public void clickApplyFilterButton() {
 		applyMyRequestButton.click();
 	}
 
-	@FindBy(css = "span[class$='align-to-left'] .aui-field-input")
-	private WebElementFacade onlyfutureVacationButton;
+	
 
-	public void click_only_future_vacation_button() {
+	public void clickOnlyFutureVacationButton() {
 		onlyfutureVacationButton.click();
 	}
 

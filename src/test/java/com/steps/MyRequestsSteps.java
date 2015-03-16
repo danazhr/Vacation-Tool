@@ -13,22 +13,22 @@ public class MyRequestsSteps extends ScenarioSteps {
 
 	@Step
 	public void set_vacation_type(String checks) {
-		reqPage.set_vacation_type(checks);
+		reqPage.setVacationType(checks);
 	}
 
 	@Step
 	public void set_daysnumber_type(String checks) {
-		reqPage.set_daysnumber_type(checks);
+		reqPage.setDaysNumberTyp(checks);
 	}
 
 	@Step
 	public void set_vacationstatus_type(String checks) {
-		reqPage.set_vacationstatus_type(checks);
+		reqPage.setVacationStatusType(checks);
 	}
 
 	@Step
 	public void click_apply_filter_button() {
-		reqPage.click_apply_filter_button();
+		reqPage.clickApplyFilterButton();
 	}
 
 	@Step
@@ -48,11 +48,11 @@ public class MyRequestsSteps extends ScenarioSteps {
 
 	@Step
 	public void click_only_future_vacation_button() {
-		reqPage.click_only_future_vacation_button();
+		reqPage.clickOnlyFutureVacationButton();
 	}
 
 	@Step
 	public void click_apply_filter_button1() {
-		reqPage.click_apply_filter_button();
+		reqPage.clickApplyFilterButton();
 	}
 }
