@@ -25,8 +25,8 @@ public class LogInTest {
 	public LogInSteps logIn;
 
 	@Test
-	public void login_with_user_and_password() {
-		logIn.is_the_login_page();
+	public void loginWithUserAndPassword() {
+		logIn.isTheLoginPage();
 		logIn.entersUsername("dana.zaharia");
 		logIn.entersPassword("danna");
 		logIn.clickLogIn();

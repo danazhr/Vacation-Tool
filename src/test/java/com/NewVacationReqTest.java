@@ -46,7 +46,7 @@ public class NewVacationReqTest {
 	}*/
 	@Test
 	public void adding_comment_to_a_special_req_that_was_selected() throws ParseException{
-		logIn.is_the_login_page();
+		logIn.isTheLoginPage();
 		logIn.entersUsername("dana.zaharia");
 		logIn.entersPassword("danna");
 		logIn.clickLogIn();

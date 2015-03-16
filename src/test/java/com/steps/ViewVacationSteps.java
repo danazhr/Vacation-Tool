@@ -15,23 +15,23 @@ public class ViewVacationSteps extends ScenarioSteps{
 	ViewVacationPage viewVacationPage;
 	
 	@Step
-	public void go_to_viewVacations(){
-	viewVacationPage.click_viewVacations();
+	public void goToViewVacations(){
+	viewVacationPage.clickViewVacations();
 	}
 	
 	@Step
-	public void set_days_number_filter(String interval){
-		viewVacationPage.set_days_number_filter(interval);
+	public void setDaysNumberFilter(String interval){
+		viewVacationPage.setDaysNumberFilter(interval);
 	}
 	
 	@Step
-	public void set_lastName_filter(String lastName){
-		viewVacationPage.set_lastName_filter(lastName);
+	public void setLastNameFilter(String lastName){
+		viewVacationPage.setLastNameFilter(lastName);
 	}
 	
 	@Step
-	public void click_apply(){
-		viewVacationPage.click_apply();
+	public void clickApply(){
+		viewVacationPage.clickApply();
 	}
 	
 	

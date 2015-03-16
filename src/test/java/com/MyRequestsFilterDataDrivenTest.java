@@ -32,7 +32,7 @@ public class MyRequestsFilterDataDrivenTest {
 
 	@Test
 	public void filter_and_check_filtered_data() {
-		logIn.is_the_login_page();
+		logIn.isTheLoginPage();
 		logIn.entersUsername("dana.zaharia");
 		logIn.entersPassword("danna");
 		logIn.clickLogIn();

@@ -21,7 +21,7 @@ public class InboxPage extends PageObject {
 	public WebElementFacade inbox;
 
 	@FindBy(css ="td[class*='rowChecker'] input")
-	public List<WebElement> check_boxes;
+	public List<WebElement> checkBoxes;
 	
 	@FindBy(css = "td[class*='employee-name']")
 	public List<WebElement> names;
@@ -35,49 +35,46 @@ public class InboxPage extends PageObject {
 	@FindBy(css = "td[class*='day.number']")
 	public List<WebElement> daysNumber;
 	
-	//@FindBy(css = "td[class*='day.number'] a[href*='vacationId=16001']")
-	//public WebElementFacade daysNo;
-	
 	@FindBy(css = "td[class*='.type']")
 	public List<WebElement> types;
 			
 	
 	@FindBy(css = "input[value='Approve']")
-	public WebElementFacade approve_button;
+	public WebElementFacade approveButton;
 	
 	@FindBy(xpath = "//div[@class='vacation-info-row align-to-left employee-info'][1]")
-	public WebElementFacade employee_info;
+	public WebElementFacade employeeInfo;
 	
 	@FindBy(xpath = "//div[@class='vacation-info-row align-to-left employee-info'][2]")
-	public WebElementFacade dates_info;
+	public WebElementFacade datesInfo;
 	
 	@FindBy(xpath = "//div[@class='vacation-info-row align-to-left employee-info'][3]")
-	public WebElementFacade days_info;
+	public WebElementFacade daysInfo;
 	
 	@FindBy(css = "span.header-back-to a")
 	public WebElementFacade backButton;
 	
 
-	public void click_inbox() {
+	public void clickInbox() {
 		inbox.waitUntilVisible();
 		inbox.click();
 	}
 
-	public int get_inbox_requests_number() {
+	public int getInboxRequestsNumber() {
 		String numberOnly = inbox.getText().replaceAll("[^0-9]", "");
 		return Integer.parseInt(numberOnly);
 	}
 
-	public int get_table_requests_number() {
+	public int getTableRequestsNumber() {
 		return startDates.size();
 	}
 
-	public void select_request(String employee, String startDate){
+	public void selectRequest(String employee, String startDate){
 		for(WebElement name : names){
 			if (name.getText().contains(employee)){
 				for(int i = 0; i < startDates.size(); i++){
 					if(startDates.get(i).getText().contains(startDate)){
-						check_boxes.get(i).click();
+						checkBoxes.get(i).click();
 					}
 				}
 				break;
@@ -85,20 +82,14 @@ public class InboxPage extends PageObject {
 		}
 	}
 	
-	public void click_specific_link_and_verify_info(String employee, String startDate){
+	public void clickSpecificLinkToVerifyInfo(String employee, String startDate){
 		for(WebElement name : names){
 			if (name.getText().contains(employee)){
 				for(int i = 0; i < startDates.size(); i++){
 					if(startDates.get(i).getText().contains(startDate)){
 						names.get(i).click();
-						verify_info_request_when_click(employee, startDate);
+						verifyInfoRequestByClicking(employee, startDate);
 						backButton.click();
-						/*startDates.get(i).click();
-						verify_info_request_when_click(employee, startDate);
-						backButton.click();
-						endDates.get(i).click();
-						verify_info_request_when_click(employee, startDate);
-						backButton.click();*/
 						
 					}
 				}
@@ -110,7 +101,7 @@ public class InboxPage extends PageObject {
 				for(int i = 0; i < startDates.size(); i++){
 					if(startDates.get(i).getText().contains(startDate)){						
 						startDates.get(i).click();
-						verify_info_request_when_click(employee, startDate);
+						verifyInfoRequestByClicking(employee, startDate);
 						backButton.click();					
 					}
 				}
@@ -122,7 +113,7 @@ public class InboxPage extends PageObject {
 				for(int i = 0; i < startDates.size(); i++){
 					if(startDates.get(i).getText().contains(startDate)){						
 						endDates.get(i).click();
-						verify_info_request_when_click(employee, startDate);
+						verifyInfoRequestByClicking(employee, startDate);
 						backButton.click();						
 					}
 				}
@@ -131,18 +122,18 @@ public class InboxPage extends PageObject {
 		}
 	}
 	
-	public void verify_info_request_when_click(String name, String stDate){
+	public void verifyInfoRequestByClicking(String name, String stDate){
 		
-		Assert.assertTrue("Not the same info!", employee_info.getText().contains(name) && dates_info.getText().contains(stDate));
+		Assert.assertTrue("Not the same info!", employeeInfo.getText().contains(name) && datesInfo.getText().contains(stDate));
 	
 	}
 	
-	public void click_approve_button(){
-		approve_button.click();
+	public void clickApproveButton(){
+		approveButton.click();
 	}
 
 
-	public void check_if_selected_request_was_approved(String employee,String startDate) {
+	public void checkIfSelectedRequestWasApproved(String employee,String startDate) {
 		boolean found = false;
 		for (WebElement name : names) {
 			if (name.getText().contains(employee)) {
@@ -158,7 +149,7 @@ public class InboxPage extends PageObject {
 	}
 	
 	
-	public int workdays_between_endDate_and_startDate(String start, String end) throws ParseException {
+	public int calculateWorkdaysBetweenEndDateAndStartDate(String start, String end) throws ParseException {
 		
 		
 		SimpleDateFormat sdfNew = new SimpleDateFormat("dd/MM/yyyy");
@@ -188,7 +179,7 @@ public class InboxPage extends PageObject {
 	    return days;    
 	}
 	
-	public int get_daysNumber_from_table(String employee, String startDate){
+	public int getDaysNumberFromTable(String employee, String startDate){
 		String d="";
 		for(WebElement name : names){
 			if (name.getText().contains(employee)){
