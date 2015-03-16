@@ -5,6 +5,7 @@ import org.junit.Assert;
 import com.pages.VacationsReportPage;
 
 import net.thucydides.core.annotations.Step;
+import net.thucydides.core.pages.WebElementState;
 import net.thucydides.core.steps.ScenarioSteps;
 
 public class VacationReportCheckNamesSteps extends ScenarioSteps {
@@ -37,15 +38,30 @@ public class VacationReportCheckNamesSteps extends ScenarioSteps {
 
 	}
 	
+		
 	@Step
-	public void error_message_displayed() {
-		Assert.assertTrue("Mesajul nu este afisat",vacRep.nousersfoundMessage.getText().toLowerCase().contains("No user we're found".toLowerCase())); 
-		}
-	//Assert.assertTrue("Mesajul nu este afisat",norecordsfoundMessage.isDisplayed());  
-	@Step
-	public void check_table() {
-		Assert.assertTrue("Tabelul nu este afisat",vacRep.tablenameList.isEmpty());
+	public void check_recordsnotfound_message() {
+
+		Assert.assertTrue(
+				"Mesajul nu este corect",
+				vacRep.nousersfoundMessage.getText().toLowerCase()
+						.equals("No user we're found".toLowerCase()));
 	}
+
+	@Step
+	public void check_table_of_names_displayed() {
+		Assert.assertFalse("Tabelul este afisat", vacRep.vacationreportTable.isDisplayed());
+		
+	
+	}
+
+	@Step
+	public void check_firstname_input(String firstname_input) {
+		vacRep.check_First_Name(firstname_input);
+
+	}
+
+	
 
 }
 

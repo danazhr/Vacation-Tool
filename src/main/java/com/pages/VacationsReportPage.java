@@ -2,6 +2,7 @@ package com.pages;
 
 import java.util.List;
 
+import net.thucydides.core.annotations.findby.By;
 import net.thucydides.core.annotations.findby.FindBy;
 import net.thucydides.core.pages.PageObject;
 import net.thucydides.core.pages.WebElementFacade;
@@ -46,30 +47,76 @@ public class VacationsReportPage extends MyReqPage {
 
 	}
 
-	@FindBy(css = ".taglib-search-iterator")
-	public List<WebElementFacade> tablenameList;
+	@FindBy(css = ".lfr-search-container")
+	public WebElementFacade vacationreportTable;
 
 	public void check_Last_Name(String lastname_input) {
 
-		if (tablenameList.size() > 0) {
-			for (WebElement lastname_element : tablenameList) {
+		List<WebElement> last_nameList = getDriver().findElements(
+				By.cssSelector("td[class*='col-1'].col-last-name"));
+
+		if (last_nameList != null) {
+			for (WebElement vacationreportTable : last_nameList) {
 
 				// Daca stringul este prezent , sa fie afisate elementele care
 				// contin stringul respectiv
 
-				if ((lastname_element.getText().contentEquals(lastname_input))) {
+				/*if ((vacationreportTable.getText().contains(lastname_input))) {
 					System.out
-							.print("!!!!!!!!!!!!!!!!!  I found my request  !!! "
-									+ lastname_element.getText());
+							.println("!!!!!!!!!!!!!!!!!  Last name string found  !!! ");
 
-					/*
-					 * } else { Assert.assertTrue("Mesajul nu este afisat",
-					 * norecordsfoundMessage .isDisplayed());
-					 * 
-					 * }
-					 */
 				}
+
+				else {
+					System.out
+							.println("!!!!!!!!!!!!!!!!!  Last name string not found  !!! ");
+
+				}*/
+				
+				Assert.assertTrue("Elementul nu este continut", vacationreportTable.toString().contains(lastname_input));
+
 			}
 		}
+
+		else {
+			Assert.assertFalse("Tabelul este afisat",
+					nousersfoundMessage.isVisible());
+		}
+
+	}
+
+	public void check_First_Name(String firstname_input) {
+
+		List<WebElement> first_nameList = getDriver().findElements(
+				By.cssSelector("td[class*='col-2'].col-first-name"));
+		if (first_nameList != null) {
+			for (WebElement vacationreportTable : first_nameList) {
+
+				// Daca stringul este prezent , sa fie afisate elementele care
+				// contin stringul respectiv
+
+				/*if ((vacationreportTable.getText().contains(firstname_input))) {
+					System.out
+							.println("!!!!!!!!!!!!!!!!!  First name string found  !!! ");
+
+				}
+
+				else {
+					System.out
+							.println("!!!!!!!!!!!!!!!!!  Last name string not found  !!! ");
+
+				}
+			*/
+			
+				Assert.assertTrue("Elementul nu este continut", vacationreportTable.toString().contains(firstname_input));
+			}
+				
+		}
+
+		else {
+			Assert.assertFalse("Tabelul este afisat",
+					nousersfoundMessage.isVisible());
+		}
+
 	}
 }

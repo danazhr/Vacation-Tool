@@ -37,36 +37,35 @@ public class VacationReportTest {
 	public VacationReportCheckNamesSteps vacReqest;
 	
 
-	//@Test
-	public void filter_and_check_filtered_data() {
-
-		logIn.isTheLoginPage();
-		logIn.entersUsername("dana.zaharia");
-		logIn.entersPassword("danna");
-		logIn.clickLogIn();
-		logIn.clickVacation();
-		vacReqest.click_on_VacationReport_button();
-		vacReqest.insert_LastName(lastname_input);
-		vacReqest.insert_FirstName(firstname_input);
-		vacReqest.click_SearchButton();
-		//vacReqest.error_message_displayed();
-		vacReqest.check_lastname_input(lastname_input);
-		
-
-	}
 	@Test
-	public void no_users_error_message_displayed(){
-		
-		logIn.isTheLoginPage();
+	public void searchLastNames() {
+		logIn.loginAs("dana.zaharia", "danna");
+		/*logIn.isTheLoginPage();
 		logIn.entersUsername("dana.zaharia");
 		logIn.entersPassword("danna");
-		logIn.clickLogIn();
+		logIn.clickLogIn();*/
 		logIn.clickVacation();
 		vacReqest.click_on_VacationReport_button();
 		vacReqest.insert_LastName(lastname_input);
 		vacReqest.insert_FirstName(firstname_input);
 		vacReqest.click_SearchButton();
-		vacReqest.error_message_displayed();
+		vacReqest.check_lastname_input(lastname_input);		
+	}
+	
+	@Test
+	public void searchFirstName(){
+		logIn.loginAs("dana.zaharia", "danna");
+		/*logIn.isTheLoginPage();
+		logIn.entersUsername("dana.zaharia");
+		logIn.entersPassword("danna");
+		logIn.clickLogIn();*/
+		logIn.clickVacation();
+		vacReqest.click_on_VacationReport_button();
+		vacReqest.insert_LastName(lastname_input);
+		vacReqest.insert_FirstName(firstname_input);
+		vacReqest.click_SearchButton();
+		vacReqest.check_firstname_input(firstname_input);
+		
 	}
 	
 
