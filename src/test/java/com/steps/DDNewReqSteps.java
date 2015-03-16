@@ -42,11 +42,22 @@ public class DDNewReqSteps extends ScenarioSteps {
 	}
 	
 	@Step
+	public void selectSpecialReason(String specV) {
+		ddReqPage.selectSpecialReason(specV);
+	}
+	
+	
+	@Step
+	public void addTextAreaComment(String comment) {
+	ddReqPage.addTextAreaComment(comment);
+    }
+
+	
+	@Step
 	public void clickSaveButton() {
 		ddReqPage.clickSaveButton();
 	}
 	
 
 }
-
 

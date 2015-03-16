@@ -49,6 +49,9 @@ public class NewVacationReqPage extends PageObject {
 
 	@FindBy(css = ".vacationTypeChoice label")
 	private List<WebElement> selectVacationTypeList;
+	
+	@FindBy(css = "div.optionalComment")
+	private WebElementFacade addOptionalComment;
 
 	
 	@FindBy(css = "div.portlet-msg-error:first-child")
@@ -97,6 +100,10 @@ public class NewVacationReqPage extends PageObject {
 
 	public void clickForAddComment() {
 		addComment.click();
+	}
+	
+	public void clickAddOptionalComment() {
+		addOptionalComment.click();
 	}
 
 	public void addTextAreaComment(String comment) {
