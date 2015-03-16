@@ -40,7 +40,7 @@ public class VacationReportTest {
 	//@Test
 	public void filter_and_check_filtered_data() {
 
-		logIn.is_the_login_page();
+		logIn.isTheLoginPage();
 		logIn.entersUsername("dana.zaharia");
 		logIn.entersPassword("danna");
 		logIn.clickLogIn();
@@ -57,7 +57,7 @@ public class VacationReportTest {
 	@Test
 	public void no_users_error_message_displayed(){
 		
-		logIn.is_the_login_page();
+		logIn.isTheLoginPage();
 		logIn.entersUsername("dana.zaharia");
 		logIn.entersPassword("danna");
 		logIn.clickLogIn();
