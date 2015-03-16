@@ -47,27 +47,44 @@ public class NewVacationReqPage extends PageObject {
 	@FindBy(css = "input[id='_evovacation_WAR_EvoVacationportlet_saveButton']")
 	private WebElementFacade saveVacReqButton;
 
+	@FindBy(css ="#_evovacation_WAR_EvoVacationportlet_withdrawnVacationRequest")
+	private WebElementFacade withdrawButton;
+	
 	@FindBy(css = ".vacationTypeChoice label")
 	private List<WebElement> selectVacationTypeList;
-	
+
 	@FindBy(css = "div#_evovacation_WAR_EvoVacationportlet_newVacationComment")
 	private WebElementFacade addOptionalComment;
 
-	
 	@FindBy(css = "div.portlet-msg-error:first-child")
 	public WebElementFacade getFirstErrorMessage;
-	 
-    @FindBy(css = "form[name='_evovacation_WAR_EvoVacationportlet_fm'] div.portlet-msg-error")
-	public WebElementFacade getSecondErrorMessage;
-	 
 	
+	@FindBy(css = "div.portlet-msg-success")
+	public WebElementFacade getSuccessMessage;
+
+	@FindBy(css = "form[name='_evovacation_WAR_EvoVacationportlet_fm'] div.portlet-msg-error")
+	public WebElementFacade getSecondErrorMessage;
+
+	@FindBy(css = "#_evovacation_WAR_EvoVacationportlet_editVacationRequest")
+	private WebElementFacade editVacationReq;
+
 	public void clickStartDate() {
 		startDateButton.click();
 	}
-
+	
+	public void getSuccessMessage() {
+		System.out.println(getSuccessMessage.getText().toLowerCase());
+		Assert.assertTrue("No Message!", getSuccessMessage.getText()
+				.toLowerCase().contains("Your request completed successfully."
+						.toLowerCase()));
+	}
+	
+	public void clickWithdrawButton() {
+		withdrawButton.click();
+	}
+	
 	public void clickVacantionCheckbox(String vacationType) {
-		List<WebElement> VacationTypes = getDriver().findElements(
-				By.cssSelector("div[class='vacationTypeChoice'] label"));
+		List<WebElement> VacationTypes = getDriver().findElements(By.cssSelector("div[class='vacationTypeChoice'] label"));
 		for (WebElement type : VacationTypes) {
 			if (type.getText().toLowerCase().equals(vacationType.toLowerCase()))
 				type.click();
@@ -77,12 +94,26 @@ public class NewVacationReqPage extends PageObject {
 	public void getFirstErrorMessage() {
 		System.out.println(getFirstErrorMessage.getText().toLowerCase());
 		System.out.println("Your request failed to complete.".toLowerCase());
-		Assert.assertTrue("Test Failed!",getFirstErrorMessage.getText().toLowerCase().contains("Your request failed to complete.".toLowerCase()));
+		Assert.assertTrue(
+				"Test Failed!",
+				getFirstErrorMessage
+						.getText()
+						.toLowerCase()
+						.contains(
+								"Your request failed to complete."
+										.toLowerCase()));
 	}
-	
-	public void getSecondErrorMessage(){
+
+	public void getSecondErrorMessage() {
 		System.out.println(getSecondErrorMessage.getText().toLowerCase());
-		Assert.assertTrue("Failed Test!", getSecondErrorMessage.getText().toLowerCase().contains("You already have a vacation set up overlaping the selected time range.".toLowerCase()));
+		Assert.assertTrue(
+				"Failed Test!",
+				getSecondErrorMessage
+						.getText()
+						.toLowerCase()
+						.contains(
+								"You already have a vacation set up overlaping the selected time range."
+										.toLowerCase()));
 	}
 
 	public void clickEndDate() {
@@ -93,7 +124,6 @@ public class NewVacationReqPage extends PageObject {
 		newVacationButton.click();
 	}
 
-	
 	public void selectSpecialReason(String specV) {
 		specialReason.selectByVisibleText(specV).click();
 	}
@@ -101,7 +131,7 @@ public class NewVacationReqPage extends PageObject {
 	public void clickForAddComment() {
 		addComment.click();
 	}
-	
+
 	public void clickAddOptionalComment() {
 		addOptionalComment.click();
 	}
@@ -149,7 +179,16 @@ public class NewVacationReqPage extends PageObject {
 			if (currentDay.getText().contentEquals(String.valueOf(dateList[0])))
 				currentDay.click();
 		}
+	}
+	
+	public void editVacationReqButton() {
+		editVacationReq.click();
+	}
 
+	public void switchToEditFrame() {
+		WebElement frame = getDriver().findElement(By.cssSelector(".aui-dialog-iframe-node"));
+		getDriver().switchTo().frame(frame);
+		
 	}
 
 }

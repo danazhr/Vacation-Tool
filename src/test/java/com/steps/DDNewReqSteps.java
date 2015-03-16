@@ -47,7 +47,7 @@ public class DDNewReqSteps extends ScenarioSteps {
 	}
 	
 	@Step
-	public void addOptinalComment() {
+	public void addOptionalComment() {
 		ddReqPage.clickAddOptionalComment();
 	}
 	

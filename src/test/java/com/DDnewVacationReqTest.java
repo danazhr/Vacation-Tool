@@ -27,7 +27,7 @@ public class DDnewVacationReqTest {
 	@ManagedPages(defaultUrl = "http://192.168.1.68:9090")
 	public Pages pages;
 	
-	String StartDate,EndDate,VacationType,Reason,Comment;
+	String StartDate,EndDate,VacationType,Comment;
 
 	@Steps
 	public DDNewReqSteps ddNewReqSteps;
@@ -47,9 +47,8 @@ public class DDnewVacationReqTest {
 		ddNewReqSteps.setStartDate(StartDate);
 		ddNewReqSteps.setEndDate(EndDate);
 		ddNewReqSteps.setVacationType(VacationType);
-		ddNewReqSteps.selectSpecialReason("reason");
-		ddNewReqSteps.addOptinalComment();
-		ddNewReqSteps.addTextAreaComment("comment");
+		ddNewReqSteps.addOptionalComment();
+		ddNewReqSteps.addTextAreaComment(Comment);
 		ddNewReqSteps.clickSaveButton();
 		
 	}
