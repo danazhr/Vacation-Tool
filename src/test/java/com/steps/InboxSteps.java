@@ -56,4 +56,9 @@ public class InboxSteps extends ScenarioSteps{
 	public void check_if_number_of_workdays_is_correct(String start, String end, String employee) throws ParseException{
 		Assert.assertEquals("Workdays number is not correct!", inboxPage.workdays_between_endDate_and_startDate(start, end), inboxPage.get_daysNumber_from_table(employee, start));
 	}
+	
+	@Step
+	public void click_specific_link_and_verify_info(String employee, String startDate){
+		inboxPage.click_specific_link_and_verify_info(employee, startDate);
+	}
 }
