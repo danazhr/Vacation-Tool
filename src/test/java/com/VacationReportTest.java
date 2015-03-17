@@ -45,11 +45,11 @@ public class VacationReportTest {
 		logIn.entersPassword("danna");
 		logIn.clickLogIn();*/
 		logIn.clickVacation();
-		vacReqest.click_on_VacationReport_button();
-		vacReqest.insert_LastName(lastname_input);
-		vacReqest.insert_FirstName(firstname_input);
-		vacReqest.click_SearchButton();
-		vacReqest.check_lastname_input(lastname_input);		
+		vacReqest.clickVacationReportButton();
+		vacReqest.insertLastName(lastname_input);
+		vacReqest.insertFirstName(firstname_input);
+		vacReqest.clickTheSearchButton();
+		vacReqest.verifyLastNameInput(lastname_input);		
 	}
 	
 	@Test
@@ -60,11 +60,11 @@ public class VacationReportTest {
 		logIn.entersPassword("danna");
 		logIn.clickLogIn();*/
 		logIn.clickVacation();
-		vacReqest.click_on_VacationReport_button();
-		vacReqest.insert_LastName(lastname_input);
-		vacReqest.insert_FirstName(firstname_input);
-		vacReqest.click_SearchButton();
-		vacReqest.check_firstname_input(firstname_input);
+		vacReqest.clickVacationReportButton();
+		vacReqest.insertLastName(lastname_input);
+		vacReqest.insertFirstName(firstname_input);
+		vacReqest.clickTheSearchButton();
+		vacReqest.verifyFirstNameInput(firstname_input);
 		
 	}
 	
